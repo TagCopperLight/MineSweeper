@@ -1,13 +1,13 @@
 #include <stdbool.h>
 
-typedef struct {
+typedef struct Cell {
     int x;
     int y;
     int adjacentMines;
     bool isMine;
     bool isRevealed;
     bool isFlagged;
-    Cell** adjacentCells;
+    struct Cell** adjacentCells;
 } Cell;
 
 // 0 1 2

@@ -44,3 +44,11 @@ Cell* initBoard(int size, int numMines){
     
     return origin;
 }
+
+int main(){
+    Cell* board = initBoard(5, 5);
+    printf("Board initialized\n");
+    free(board);
+
+    return 0;
+}
