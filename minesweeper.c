@@ -60,6 +60,11 @@ void addMines (Cell* origin, int numMines, int size){
         }
 
         cell->isMine = true;
+        for(int j = 0; j < 8; j++){
+            if(cell->adjacentCells[j] != NULL){
+                cell->adjacentCells[j]->adjacentMines++;
+            }
+        }
     }
 }
 
