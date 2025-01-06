@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include "minesweeper.h"
 
-Cell* initBoard(int size, int numMines){
+Cell* initBoard(int size){
     Cell*** board = malloc(size * sizeof(Cell**));
     for(int i = 0; i < size; i++){
         board[i] = malloc(size * sizeof(Cell*));
@@ -45,9 +45,29 @@ Cell* initBoard(int size, int numMines){
     return origin;
 }
 
+void addMines (Cell* origin, int numMines, int size){
+    for(int i = 0; i < numMines; i++){
+        int x = rand() % size;
+        int y = rand() % size;
+        
+        Cell* cell = origin;
+
+        for(int j = 0; j < x; j++){
+            cell = cell->adjacentCells[4];
+        }
+        for(int j = 0; j < y; j++){
+            cell = cell->adjacentCells[6];
+        }
+
+        cell->isMine = true;
+    }
+}
+
 int main(){
-    Cell* board = initBoard(5, 5);
+    Cell* board = initBoard(10);
     printf("Board initialized\n");
+    addMines(board, 10, 10);
+    printf("Mines added\n");
     free(board);
 
     return 0;
