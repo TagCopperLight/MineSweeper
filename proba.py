@@ -352,6 +352,8 @@ def calculate_probabilities_matrices():
         group_value = var_names[var]
         free_var_ranges.append(range(groups[group_value]['lower_bound'], groups[group_value]['upper_bound'] + 1))
 
+    debug(free_var_ranges)
+
     for values in product(*free_var_ranges):
         solution = [0 for _ in range(len(reduced[0]) - 1)]
         for free_var, value in zip(free_vars, values):
@@ -367,7 +369,7 @@ def calculate_probabilities_matrices():
             if not groups[group_value]['lower_bound'] <= solution[var] <= groups[group_value]['upper_bound']:
                 isValid = False
                 break
-        
+
         if isValid:
             solutions.append(solution)
 
@@ -393,13 +395,17 @@ def calculate_probabilities_matrices():
 
     solutions_probabilities = [probability / sum(solutions_probabilities) for probability in solutions_probabilities]
     
-    # debug(solutions_probabilities, '\n\n')
+    debug(solutions_probabilities, '\n\n')
 
     for group in groups:
         group_probability = 0
         for i, solution in enumerate(solutions):
             for j, value in enumerate(solution):
                 if var_names[j] == group:
+                    debug(f"Group: {group}")
+                    debug(f"Solution Probability: {solutions_probabilities[i]}")
+                    debug(f"Value: {value}")
+                    debug(f"Group Cell Count: {groups[group]['cell_count']}")
                     group_probability += solutions_probabilities[i] * value / groups[group]['cell_count']
         groups[group]['probability'] = group_probability
     

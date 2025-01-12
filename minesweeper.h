@@ -12,7 +12,7 @@ typedef struct Cell {
     bool isFlagged;
     struct Cell** adjacentCells;
 
-    float ai_probability;
+    float probability;
 } Cell;
 
 // 0 1 2
