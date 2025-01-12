@@ -1,3 +1,6 @@
+#ifndef MINESWEEPER_H
+#define MINESWEEPER_H
+
 #include <stdbool.h>
 
 typedef struct Cell {
@@ -8,6 +11,8 @@ typedef struct Cell {
     bool isRevealed;
     bool isFlagged;
     struct Cell** adjacentCells;
+
+    float ai_probability;
 } Cell;
 
 // 0 1 2
@@ -16,3 +21,14 @@ typedef struct Cell {
 
 // (0,0) (1,0)
 // (0,1)
+
+// Pour chaque ligne de texte i:
+    // cell = origin
+    // Pour _ in range i :
+        // cell = cell->adjacentCells[6]
+    // Pour chaque case _ :
+        // print la case
+        // cell = cell->adjacentCells[4]
+    // Print \n
+
+#endif // MINESWEEPER_H

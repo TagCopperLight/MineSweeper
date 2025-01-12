@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "minesweeper.h"
+#include "probabilities.h"
 
 // Fonction pour initialiser le plateau de jeu
 Cell* initBoard(int size){
@@ -19,6 +20,7 @@ Cell* initBoard(int size){
             board[i][j]->isRevealed = false;
             board[i][j]->isFlagged = false;
             board[i][j]->adjacentCells = malloc(8 * sizeof(Cell*));
+            board[i][j]->ai_probability = 0.5;
             for(int k = 0; k < 8; k++){
                 board[i][j]->adjacentCells[k] = NULL;
             }
@@ -64,8 +66,9 @@ void addMines (Cell* origin, int numMines, int size){
 
         // Place une mine et incrémente le compteur des cellules adjacentes
         cell->isMine = true;
-        for(int j=0; j <8;j++){
-            if(cell->adjacentCells[j]!=NULL){
+      
+        for(int j = 0; j < 8; j++){
+            if(cell->adjacentCells[j] != NULL){
                 cell->adjacentCells[j]->adjacentMines++;
             }
         }
