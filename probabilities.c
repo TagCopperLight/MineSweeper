@@ -1,123 +1,81 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
-#include <stdbool.h>
- 
-#define MAX_TILES 100
-#define MAX_COMBINATIONS 1024
- 
-// Factorial for combinations count
-int factorial(int n) {
-    if (n == 0 || n == 1) return 1;
-    return n * factorial(n - 1);
-}
- 
-int combinations_count(int n, int k) {
-    if (k > n) return 0;
-    return factorial(n) / (factorial(k) * factorial(n - k));
-}
- 
-void generate_combinations(int *group, int group_size, int mines, int combinations[][MAX_TILES], int *count) {
-    int indices[mines];
-    for (int i = 0; i < mines; i++) {
-        indices[i] = i;
-    }
- 
-    while (1) {
-        int combination[MAX_TILES] = {0};
-        for (int i = 0; i < mines; i++) {
-            combination[group[indices[i]]] = 1;
-        }
-        memcpy(combinations[*count], combination, sizeof(combination));
-        (*count)++;
- 
-        int i;
-        for (i = mines - 1; i >= 0 && indices[i] == group_size - mines + i; i--);
-        if (i < 0) break;
-        indices[i]++;
-        for (int j = i + 1; j < mines; j++) {
-            indices[j] = indices[i] + j - i;
+#include "probabilities.h"
+#include "minesweeper.h"
+
+
+Matrix* create_matrix(int rows, int cols){
+    Matrix* matrix = malloc(sizeof(Matrix));
+    matrix->rows = rows;
+    matrix->cols = cols;
+    matrix->data = malloc(rows * sizeof(float*));
+    for (int i = 0; i < rows; i++){
+        matrix->data[i] = malloc(cols * sizeof(float));
+        for (int j = 0; j < cols; j++){
+            matrix->data[i][j] = 0;
         }
     }
+    return matrix;	
 }
- 
-void calculate_probabilities(int num_tiles, int num_groups, int group_sizes[], int group_tiles[][MAX_TILES], int group_mines[], double probabilities[MAX_TILES]) {
-    memset(probabilities, 0, sizeof(double) * num_tiles);
- 
-    int combinations[num_groups][MAX_COMBINATIONS][MAX_TILES];
-    int combination_counts[num_groups];
-    memset(combination_counts, 0, sizeof(combination_counts));
- 
-    for (int g = 0; g < num_groups; g++) {
-        generate_combinations(group_tiles[g], group_sizes[g], group_mines[g], combinations[g], &combination_counts[g]);
+
+void free_matrix(Matrix* matrix){
+    for (int i = 0; i < matrix->rows; i++){
+        free(matrix->data[i]);
     }
- 
-    int total_valid_configurations = 0;
- 
-    // Iterate over all combinations for all groups
-    for (int i = 0; i < combination_counts[0]; i++) {
-        bool valid = true;
-        int combined[MAX_TILES] = {0};
-        for (int t = 0; t < num_tiles; t++) {
-            combined[t] = combinations[0][i][t];
+    free(matrix->data);
+    free(matrix);
+}
+
+void print_matrix(Matrix* matrix){
+    for (int i = 0; i < matrix->rows; i++){
+        for (int j = 0; j < matrix->cols; j++){
+            printf("%i ", (int)matrix->data[i][j]);
         }
- 
-        for (int g = 1; g < num_groups; g++) {
-            bool group_valid = false;
-            for (int j = 0; j < combination_counts[g]; j++) {
-                bool overlap_valid = true;
-                for (int t = 0; t < num_tiles; t++) {
-                    if (combined[t] && combinations[g][j][t]) {
-                        overlap_valid = false;
-                        break;
-                    }
-                }
-                if (overlap_valid) {
-                    group_valid = true;
-                    for (int t = 0; t < num_tiles; t++) {
-                        combined[t] |= combinations[g][j][t];
-                    }
-                    break;
-                }
+        printf("\n");
+    }
+}
+
+Matrix* create_adjacency_matrix(int n, int m){
+    Matrix* A = create_matrix(n*m, n*m);
+
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++){
+            int index = i*m + j;
+            if (i - 1 >= 0 && j - 1 >= 0) A->data[index][index - m - 1] = 1;
+            if (j - 1 >= 0) A->data[index][index - 1] = 1;
+            if (i + 1 < n && j - 1 >= 0) A->data[index][index + m - 1] = 1;
+            if (i - 1 >= 0) A->data[index][index - m] = 1;
+            if (i + 1 < n) A->data[index][index + m] = 1;
+            if (i - 1 >= 0 && j + 1 < m) A->data[index][index - m + 1] = 1;
+            if (j + 1 < m) A->data[index][index + 1] = 1;
+            if (i + 1 < n && j + 1 < m) A->data[index][index + m + 1] = 1;
+        }
+    }
+
+    return A;
+}
+
+void calculate_probabilities(Cell* origin, int size){
+    int n = 4;
+    int m = 3;
+    Matrix* A = create_adjacency_matrix(n, m);
+    print_matrix(A);
+
+    Matrix* v = create_matrix(n*m, 1);
+    for (int i = 0; i < n; i++){
+        Cell* cell = origin;
+        for (int j = 0; j < i; j++){
+            cell = cell->adjacentCells[6];
+        }
+        for (int j = 0; j < m; j++){
+            if (cell->isRevealed){
+                v->data[i*m + j][0] = cell->adjacentMines;
+            } else {
+                v->data[i*m + j][0] = -1;
             }
-            if (!group_valid) {
-                valid = false;
-                break;
-            }
-        }
- 
-        if (!valid) continue;
- 
-        total_valid_configurations++;
-        for (int t = 0; t < num_tiles; t++) {
-            probabilities[t] += combined[t];
+            cell = cell->adjacentCells[4];
         }
     }
- 
-    for (int t = 0; t < num_tiles; t++) {
-        probabilities[t] /= total_valid_configurations;
-    }
-}
- 
-int main() {
-    // Define the board and groups
-    int num_tiles = 10; // Total tiles on the board
- 
-    int num_groups = 2; // Number of groups (constraints)
-    int group_sizes[] = {7, 7}; // Sizes of the groups
-    int group_tiles[2][MAX_TILES] = {
-        {0, 1, 2, 3, 4, 5, 6}, // Group affected by '2'
-        {3, 4, 5, 6, 7, 8, 9}  // Group affected by '1'
-    };
-    int group_mines[] = {2, 1}; // Mines in each group
- 
-    double probabilities[MAX_TILES];
-    calculate_probabilities(num_tiles, num_groups, group_sizes, group_tiles, group_mines, probabilities);
- 
-    printf("Probabilities of a mine being present:\n");
-    for (int i = 0; i < num_tiles; i++) {
-        printf("Tile %c: %.2f\n", 'A' + i, probabilities[i]);
-    }
- 
-    return 0;
+
+    print_matrix(v);
 }

@@ -1,3 +1,6 @@
+#ifndef MINESWEEPER_H
+#define MINESWEEPER_H
+
 #include <stdbool.h>
 
 typedef struct Cell {
@@ -9,7 +12,6 @@ typedef struct Cell {
     bool isFlagged;
     struct Cell** adjacentCells;
 
-    int ai_value;
     float ai_probability;
 } Cell;
 
@@ -28,3 +30,5 @@ typedef struct Cell {
         // print la case
         // cell = cell->adjacentCells[4]
     // Print \n
+
+#endif // MINESWEEPER_H

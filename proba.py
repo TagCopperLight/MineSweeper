@@ -2,7 +2,7 @@ from itertools import combinations, product
 
 import math
 
-SIZE = 10
+SIZE = 5
 DEBUG = True
 
 def debug(*args, **kwargs):
@@ -225,7 +225,7 @@ def matrix_mult(m1, m2):
 
 
 def calculate_probabilities_matrices():
-    n, m = SIZE, SIZE
+    n, m = 3, 4
     tiles = [[-1 for _ in range(n)] for _ in range(m)]
     # tiles[1][1] = 0
     # tiles[1][2] = 2
@@ -247,18 +247,18 @@ def calculate_probabilities_matrices():
     # tiles[3][3] = 1
     # tiles[3][4] = 4
 
-    # tiles[3][2] = 1
-    # tiles[2][2] = 2
+    tiles[1][1] = 2
+    tiles[2][1] = 1
 
-    tiles[2][2] = 2
-    tiles[2][3] = 2
-    tiles[2][4] = 1
-    tiles[3][2] = 1
-    tiles[3][3] = 0
-    tiles[3][4] = 1
-    tiles[4][2] = 3
-    tiles[4][3] = 2
-    tiles[4][4] = 2
+    # tiles[2][2] = 2
+    # tiles[2][3] = 2
+    # tiles[2][4] = 1
+    # tiles[3][2] = 1
+    # tiles[3][3] = 0
+    # tiles[3][4] = 1
+    # tiles[4][2] = 3
+    # tiles[4][3] = 2
+    # tiles[4][4] = 2
 
     show_board(tiles, n)
 

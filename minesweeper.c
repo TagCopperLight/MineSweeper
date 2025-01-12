@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "minesweeper.h"
+#include "probabilities.h"
 
 Cell* initBoard(int size){
     Cell*** board = malloc(size * sizeof(Cell**));
@@ -16,7 +17,6 @@ Cell* initBoard(int size){
             board[i][j]->isRevealed = false;
             board[i][j]->isFlagged = false;
             board[i][j]->adjacentCells = malloc(8 * sizeof(Cell*));
-            board[i][j]->ai_value = 1;
             board[i][j]->ai_probability = 0.5;
             for(int k = 0; k < 8; k++){
                 board[i][j]->adjacentCells[k] = NULL;
@@ -70,19 +70,15 @@ void addMines (Cell* origin, int numMines, int size){
     }
 }
 
-void getAiValue(Cell* cell){
-    if(cell->isRevealed) return;
-    if(cell->isFlagged) return;
-
-    int value = 0;  
-
-}
-
 int main(){
-    Cell* board = initBoard(10);
+    int size = 5;
+    Cell* board = initBoard(size);
     printf("Board initialized\n");
-    addMines(board, 10, 10);
+    addMines(board, 5, size);
     printf("Mines added\n");
+
+    calculate_probabilities(board, size);
+
     free(board);
 
     return 0;
