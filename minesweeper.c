@@ -16,6 +16,8 @@ Cell* initBoard(int size){
             board[i][j]->isRevealed = false;
             board[i][j]->isFlagged = false;
             board[i][j]->adjacentCells = malloc(8 * sizeof(Cell*));
+            board[i][j]->ai_value = 1;
+            board[i][j]->ai_probability = 0.5;
             for(int k = 0; k < 8; k++){
                 board[i][j]->adjacentCells[k] = NULL;
             }
@@ -66,6 +68,14 @@ void addMines (Cell* origin, int numMines, int size){
             }
         }
     }
+}
+
+void getAiValue(Cell* cell){
+    if(cell->isRevealed) return;
+    if(cell->isFlagged) return;
+
+    int value = 0;  
+
 }
 
 int main(){
