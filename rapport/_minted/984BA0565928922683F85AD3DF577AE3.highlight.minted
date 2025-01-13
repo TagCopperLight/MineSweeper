@@ -1,0 +1,48 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+        Fonction a\PYGZus{}star en @path
+        Parametres :
+            origin en entier
+            destination en entier
+            level en niveau
+        Déclarations :
+            pat en @path
+            u, v en entier
+            h\PYGZus{}v en flottant
+        Début
+            pat \PYGZlt{}\PYGZhy{} create\PYGZus{}path // On initialise le chemin
+            // pat.d est le tableau des distances, pat.p est le tableau des parents
+            pat.d[origin] \PYGZlt{}\PYGZhy{} origin
+            insert(pat.heap, origin, 0) // On ajoute le point d\PYGZsq{}origine a la file
+
+            Tant que pat.heap n\PYGZsq{}est pas vide
+                // Sommet courant, celui avec la priorite minimale
+                u \PYGZlt{}\PYGZhy{} extract\PYGZus{}min(pat.heap)
+
+                Si u = destination
+                    // On a trouve le bonus, on pourra remonter le chemin grace a pat.p
+                    pat.found \PYGZlt{}\PYGZhy{} VRAI
+                    Sortir de la boucle
+                Fin Si
+
+                Pour chaque action possible
+                    Si l\PYGZsq{}action est valide // Dépend de level
+                        v \PYGZlt{}\PYGZhy{} position apres l\PYGZsq{}action
+                        h\PYGZus{}v \PYGZlt{}\PYGZhy{} distance entre v et le bonus (l\PYGZsq{}heuristique)
+                        Si pat.d[u] + poids de l\PYGZsq{}action \PYGZlt{} pat.d[v]
+                            // Si on a trouve un chemin plus court
+                            pat.d[v] \PYGZlt{}\PYGZhy{} pat.d[u] + poids de l\PYGZsq{}action
+                            pat.p[v] \PYGZlt{}\PYGZhy{} u
+                            Si v n\PYGZsq{}est pas dans la file
+                                insert(pat.heap, v, pat.d[v] + h\PYGZus{}v) // On l\PYGZsq{}ajoute
+                            Sinon
+                                // On modifie sa priorite
+                                modify\PYGZus{}priority(pat.heap, v, pat.d[v] + h\PYGZus{}v)
+                            Fin Si
+                        Fin Si
+                    Fin Si
+                Fin Pour
+            Fin Tant que
+
+            Retourner pat
+        Fin
+\end{MintedVerbatim}

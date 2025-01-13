@@ -1,0 +1,33 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+        Fonction get\PYGZus{}closest\PYGZus{}bonus en bonus\PYGZus{}list
+        Parametres :
+            bonusl en bonus\PYGZus{}list
+            runner en character\PYGZus{}list
+            already\PYGZus{}seen en bonus\PYGZus{}list
+        Declarations :
+            closest\PYGZus{}bonus en bonus\PYGZus{}list
+            best\PYGZus{}dist en reel
+            current en bonus\PYGZus{}list
+        Debut
+            closest\PYGZus{}bonus \PYGZlt{}\PYGZhy{} NULL
+
+            Si bonusl == NULL alors
+                // Si la liste des bonus est vide, il n\PYGZsq{}y a pas de bonus le plus proche
+                Retourner NULL
+            Fin Si
+
+            best\PYGZus{}dist \PYGZlt{}\PYGZhy{} 100000 // On initialise la meilleure distance à une valeur très grande
+            current \PYGZlt{}\PYGZhy{} bonusl // On initialise le bonus courant à la tête de la liste des bonus
+
+            Tant que current != NULL faire
+                // On parcourt la liste des bonus
+                Si dist(current\PYGZhy{}\PYGZgt{}b.x, current\PYGZhy{}\PYGZgt{}b.y, runner\PYGZhy{}\PYGZgt{}c.x, runner\PYGZhy{}\PYGZgt{}c.y) \PYGZlt{} best\PYGZus{}dist et non is\PYGZus{}in\PYGZus{}bonus\PYGZus{}list(current, already\PYGZus{}seen) alors
+                    closest\PYGZus{}bonus \PYGZlt{}\PYGZhy{} current
+                    best\PYGZus{}dist \PYGZlt{}\PYGZhy{} dist(current\PYGZhy{}\PYGZgt{}b.x, current\PYGZhy{}\PYGZgt{}b.y, runner\PYGZhy{}\PYGZgt{}c.x, runner\PYGZhy{}\PYGZgt{}c.y)
+                Fin Si
+                current \PYGZlt{}\PYGZhy{} current\PYGZhy{}\PYGZgt{}next // On passe au bonus suivant
+            Fin Tant que
+
+            Retourner closest\PYGZus{}bonus // On retourne le bonus le plus proche
+        Fin
+\end{MintedVerbatim}

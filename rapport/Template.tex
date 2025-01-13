@@ -1,0 +1,34 @@
+%%% Packages and Document Configurations %%%
+\documentclass{Template}
+
+%%% Document Variables %%%
+\input{Variables/Variables}
+
+%%% Loading of Glossary and Acronyms %%%
+\loadglsentries{Matter/04-Glossary}
+\loadglsentries[\acronymtype]{Matter/05-Acronyms}
+
+\begin{document}
+
+%%% Front Matter %%%
+\include{Matter/00-Cover}
+
+\pagenumbering{arabic}
+
+%%% Table of Contents, List of Figures and List of Tables %%%
+\renewcommand*\contentsname{Table des matières}
+\tableofcontents
+
+%%% Chapters %%%
+\include{Chapters/01-Introduction}
+\include{Chapters/02-Preliminaires}
+\include{Chapters/03-Strategie}
+\include{Chapters/04-Parametres}
+\include{Chapters/05-Modules}
+\include{Chapters/06-Presentation-Modules}
+\include{Chapters/07-Evaluation-Experimentale}
+\include{Chapters/08-Conclusion}
+
+\printbibliography[title={\refname},heading=bibintoc]
+
+\end{document}

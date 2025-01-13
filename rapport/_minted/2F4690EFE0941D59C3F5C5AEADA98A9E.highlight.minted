@@ -1,0 +1,10 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{+w}{        }\PYG{n}{min\PYGZus{}heap}\PYG{o}{*}\PYG{+w}{ }\PYG{n+nf}{create\PYGZus{}min\PYGZus{}heap}\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{free\PYGZus{}min\PYGZus{}heap}\PYG{p}{(}\PYG{n}{min\PYGZus{}heap}\PYG{o}{*}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{percolate\PYGZus{}up}\PYG{p}{(}\PYG{n}{min\PYGZus{}heap}\PYG{o}{*}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{percolate\PYGZus{}down}\PYG{p}{(}\PYG{n}{min\PYGZus{}heap}\PYG{o}{*}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{insert}\PYG{p}{(}\PYG{n}{min\PYGZus{}heap}\PYG{o}{*}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{float}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{modify\PYGZus{}priority}\PYG{p}{(}\PYG{n}{min\PYGZus{}heap}\PYG{o}{*}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{float}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{extract\PYGZus{}min}\PYG{p}{(}\PYG{n}{min\PYGZus{}heap}\PYG{o}{*}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{is\PYGZus{}member}\PYG{p}{(}\PYG{n}{min\PYGZus{}heap}\PYG{o}{*}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}

@@ -1,0 +1,9 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{+w}{        }\PYG{k}{typedef}\PYG{+w}{ }\PYG{k}{struct}\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{k+kt}{char}\PYG{+w}{ }\PYG{o}{*}\PYG{o}{*}\PYG{n}{map}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{xsize}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{ysize}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{xexit}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{yexit}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{n}{levelinfo}\PYG{p}{;}
+\end{MintedVerbatim}

@@ -1,0 +1,113 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+        Procéduer combat\PYGZus{}moves
+        Parametres :
+            runner en character\PYGZus{}list
+            closest\PYGZus{}enemy en character\PYGZus{}list
+            @move\PYGZus{}to\PYGZus{}combat en entier
+            level en levelinfo
+        Declarations :
+            down\PYGZus{}left en caractère
+            down\PYGZus{}right en caractère
+            top\PYGZus{}left en caractère
+            top\PYGZus{}right en caractère
+            left en caractère
+            right en caractère
+            center en caractère
+            can\PYGZus{}right en booléen
+            can\PYGZus{}left en booléen
+            distance en entier
+            can\PYGZus{}up en booléen
+            can\PYGZus{}down en booléen
+        Debut
+            // On récupère les cases autour du runner
+            down\PYGZus{}left \PYGZlt{}\PYGZhy{} level.map[runner\PYGZhy{}\PYGZgt{}c.y + 1][runner\PYGZhy{}\PYGZgt{}c.x \PYGZhy{} 1]
+            down\PYGZus{}right \PYGZlt{}\PYGZhy{} level.map[runner\PYGZhy{}\PYGZgt{}c.y + 1][runner\PYGZhy{}\PYGZgt{}c.x + 1]
+            top\PYGZus{}left \PYGZlt{}\PYGZhy{} level.map[runner\PYGZhy{}\PYGZgt{}c.y \PYGZhy{} 1][runner\PYGZhy{}\PYGZgt{}c.x \PYGZhy{} 1]
+            top\PYGZus{}right \PYGZlt{}\PYGZhy{} level.map[runner\PYGZhy{}\PYGZgt{}c.y \PYGZhy{} 1][runner\PYGZhy{}\PYGZgt{}c.x + 1]
+            left \PYGZlt{}\PYGZhy{} level.map[runner\PYGZhy{}\PYGZgt{}c.y][runner\PYGZhy{}\PYGZgt{}c.x \PYGZhy{} 1]
+            right \PYGZlt{}\PYGZhy{} level.map[runner\PYGZhy{}\PYGZgt{}c.y][runner\PYGZhy{}\PYGZgt{}c.x + 1]
+            center \PYGZlt{}\PYGZhy{} level.map[runner\PYGZhy{}\PYGZgt{}c.y][runner\PYGZhy{}\PYGZgt{}c.x]
+
+            // On vérifie si on peut se déplacer à droite ou à gauche, et si on ne tombe pas en le faisant
+            can\PYGZus{}right \PYGZlt{}\PYGZhy{} is\PYGZus{}valid(runner\PYGZhy{}\PYGZgt{}c.y * level.xsize + runner\PYGZhy{}\PYGZgt{}c.x, RIGHT, level, level)
+            can\PYGZus{}left \PYGZlt{}\PYGZhy{} is\PYGZus{}valid(runner\PYGZhy{}\PYGZgt{}c.y * level.xsize + runner\PYGZhy{}\PYGZgt{}c.x, LEFT, level, level)
+            can\PYGZus{}right \PYGZlt{}\PYGZhy{} can\PYGZus{}right et (down\PYGZus{}right != BOMB et down\PYGZus{}right != PATH)
+            can\PYGZus{}left \PYGZlt{}\PYGZhy{} can\PYGZus{}left et (down\PYGZus{}left != BOMB et down\PYGZus{}left != PATH)
+
+            Si closest\PYGZus{}enemy != NULL alors
+                // Si il y a un ennemi dangereux (donc que l\PYGZsq{}on est en mode combat)
+                Si *move\PYGZus{}to\PYGZus{}combat == \PYGZhy{}1 alors
+                    // Si on n\PYGZsq{}a pas encore décidé de comment se déplacer
+                    distance \PYGZlt{}\PYGZhy{} runner\PYGZhy{}\PYGZgt{}c.y \PYGZhy{} closest\PYGZus{}enemy\PYGZhy{}\PYGZgt{}c.y // On calcule la distance verticale
+                    Si distance == 0 alors
+                        // Combat horizontal
+                        distance \PYGZlt{}\PYGZhy{} runner\PYGZhy{}\PYGZgt{}c.x \PYGZhy{} closest\PYGZus{}enemy\PYGZhy{}\PYGZgt{}c.x // On calcule la distance horizontale
+                        Si level.map[runner\PYGZhy{}\PYGZgt{}c.y \PYGZhy{} 1][runner\PYGZhy{}\PYGZgt{}c.x] == CABLE et level.map[runner\PYGZhy{}\PYGZgt{}c.y + 1][runner\PYGZhy{}\PYGZgt{}c.x] == PATH alors
+                            // On est sur un cable, on ne peut pas poser de bombe, on saute
+                            *move\PYGZus{}to\PYGZus{}combat \PYGZlt{}\PYGZhy{} DOWN
+                        Sinon Si distance \PYGZgt{} 0 et distance \PYGZlt{} 4 alors
+                            // A gauche
+                            Si (down\PYGZus{}left == FLOOR ou down\PYGZus{}left == BOMB) et top\PYGZus{}left != CABLE et left != ENEMY alors
+                                Si down\PYGZus{}left == BOMB alors
+                                    // Il y a deja une bombe, on attend
+                                    *move\PYGZus{}to\PYGZus{}combat \PYGZlt{}\PYGZhy{} NONE
+                                Sinon
+                                    // On pose une bombe a gauche
+                                    *move\PYGZus{}to\PYGZus{}combat \PYGZlt{}\PYGZhy{} BOMB\PYGZus{}LEFT
+                                Fin Si
+                            Sinon
+                                // On ne peut pas poser de bombe, on se deplace a droite
+                                Si can\PYGZus{}right alors *move\PYGZus{}to\PYGZus{}combat \PYGZlt{}\PYGZhy{} RIGHT
+                            Fin Si
+                        Sinon Si distance \PYGZlt{} 0 et distance \PYGZgt{} \PYGZhy{}4 alors
+                            // A droite
+                            Si (down\PYGZus{}right == FLOOR ou down\PYGZus{}right == BOMB) et top\PYGZus{}right != CABLE et right != ENEMY alors
+                                Si down\PYGZus{}right == BOMB alors
+                                    // Il y a deja une bombe, on attend
+                                    *move\PYGZus{}to\PYGZus{}combat \PYGZlt{}\PYGZhy{} NONE
+                                Sinon
+                                    // On pose une bombe a droite
+                                    *move\PYGZus{}to\PYGZus{}combat \PYGZlt{}\PYGZhy{} BOMB\PYGZus{}RIGHT
+                                Fin Si
+                            Sinon
+                                // On ne peut pas poser de bombe, on se deplace a gauche
+                                Si can\PYGZus{}left alors *move\PYGZus{}to\PYGZus{}combat \PYGZlt{}\PYGZhy{} LEFT
+                            Fin Si
+                        Fin Si
+
+                        // Ces mouvements ont priorite sur les autres
+
+                        Si can\PYGZus{}right alors
+                            Si (left == LADDER ou center == LADDER ou (left == ENEMY et top\PYGZus{}left == LADDER)) et distance \PYGZgt{} 0 alors
+                                // On se deplace a droite si on est sur une echelle, ou si on a une echelle a gauche
+                                *move\PYGZus{}to\PYGZus{}combat \PYGZlt{}\PYGZhy{} RIGHT
+                            Fin Si
+                        Fin Si
+
+                        Si can\PYGZus{}left alors
+                            Si (right == LADDER ou center == LADDER ou (right == ENEMY et top\PYGZus{}right == LADDER)) et distance \PYGZlt{} 0 alors
+                                // On se deplace a gauche si on est sur une echelle, ou si on a une echelle a droite
+                                *move\PYGZus{}to\PYGZus{}combat \PYGZlt{}\PYGZhy{} LEFT
+                            Fin Si
+                        Fin Si
+                    Sinon
+                        // Combat vertical (sur une echelle)
+                        bool can\PYGZus{}up \PYGZlt{}\PYGZhy{} is\PYGZus{}valid(runner\PYGZhy{}\PYGZgt{}c.y * level.xsize + runner\PYGZhy{}\PYGZgt{}c.x, UP, level, level)
+                        bool can\PYGZus{}down \PYGZlt{}\PYGZhy{} is\PYGZus{}valid(runner\PYGZhy{}\PYGZgt{}c.y * level.xsize + runner\PYGZhy{}\PYGZgt{}c.x, DOWN, level, level)
+                        Si distance \PYGZgt{} 0 et can\PYGZus{}down alors
+                            // On descend si un ennemi est au dessus
+                            *move\PYGZus{}to\PYGZus{}combat \PYGZlt{}\PYGZhy{} DOWN
+                        Sinon Si distance \PYGZlt{} 0 et can\PYGZus{}up alors
+                            // On monte si un ennemi est en dessous
+                            *move\PYGZus{}to\PYGZus{}combat \PYGZlt{}\PYGZhy{} UP
+                        Fin Si
+
+                        Si level.map[runner\PYGZhy{}\PYGZgt{}c.y][runner\PYGZhy{}\PYGZgt{}c.x] == PATH ou level.map[runner\PYGZhy{}\PYGZgt{}c.y + 1][runner\PYGZhy{}\PYGZgt{}c.x] == FLOOR alors
+                            // Si on est en haut ou en bas d\PYGZsq{}une echelle, alors c\PYGZsq{}est une erreur et on est en pas en mode combat, on remmet move\PYGZus{}to\PYGZus{}combat a \PYGZhy{}1
+                            *move\PYGZus{}to\PYGZus{}combat \PYGZlt{}\PYGZhy{} \PYGZhy{}1
+                        Fin Si
+                    Fin Si
+                Fin Si
+            Fin Si
+        Fin
+\end{MintedVerbatim}

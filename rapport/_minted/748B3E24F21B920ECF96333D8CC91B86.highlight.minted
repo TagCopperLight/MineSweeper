@@ -1,0 +1,13 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+    Procédure percolate\PYGZus{}up
+    Parametres :
+        @heap en tas\PYGZhy{}min
+        i en entier
+    Debut
+        Tant que heap.priority[i] \PYGZlt{} heap.priority[(i \PYGZhy{} 1) / 2] et i \PYGZgt{} 0
+            Echanger(heap.array, i, (i \PYGZhy{} 1) / 2)
+            Echanger(heap\PYGZhy{}\PYGZgt{}priority, i, (i \PYGZhy{} 1) / 2)
+            i \PYGZlt{}\PYGZhy{} (i \PYGZhy{} 1) / 2
+        Fin Tant que
+    Fin
+\end{MintedVerbatim}
