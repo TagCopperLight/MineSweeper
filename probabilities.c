@@ -219,6 +219,12 @@ void calculate_probabilities(Cell* origin, int n, int m){
         }
     }
 
+    printf("\nn_of_reveald_cells: %d\n", n_of_reveald_cells);
+
+    if (n_of_reveald_cells == 0 || n_of_reveald_cells == n*m){
+        return;
+    }
+
     Matrix* revealed_cells = create_matrix(1, n_of_reveald_cells);
 
     int k = 0;
@@ -377,7 +383,6 @@ void calculate_probabilities(Cell* origin, int n, int m){
     printf("\nGroups after bonds:\n");
     print_group(groups);
 
-
     gauss_jordan(system);
 
     printf("\nSystem after gauss-jordan:\n");
@@ -437,8 +442,7 @@ void calculate_probabilities(Cell* origin, int n, int m){
     int** free_columns_ranges = malloc(n_of_free_columns * sizeof(int*));
     int* free_columns_ranges_sizes = malloc(n_of_free_columns * sizeof(int));
     for (int i = 0; i < n_of_free_columns; i++){
-        int group_id = groups_ids[free_columns[i]];
-        Group* group = get_group(groups, group_id);
+        Group* group = get_group(groups, groups_ids[free_columns[i]]);
 
         int lower_bound = group->lower_bound;
         int upper_bound = group->upper_bound;
@@ -476,8 +480,7 @@ void calculate_probabilities(Cell* origin, int n, int m){
 
         bool is_valid = true;
         for (int i = 0; i < n_of_groups; i++){
-            int group_id = groups_ids[i];
-            Group* group = get_group(groups, group_id);
+            Group* group = get_group(groups, groups_ids[i]);
 
             if (solution->data[i][0] < group->lower_bound || solution->data[i][0] > group->upper_bound){
                 is_valid = false;
@@ -525,8 +528,7 @@ void calculate_probabilities(Cell* origin, int n, int m){
     while (current_solution != NULL){
         float probability = 1;
         for (int i = 0; i < n_of_groups; i++){
-            int group_id = groups_ids[i];
-            Group* group = get_group(groups, group_id);
+            Group* group = get_group(groups, groups_ids[i]);
             probability *= nCr(group->cell_count, (int)current_solution->S->data[i][0]);
         }
         solutions_probabilities[k] = probability;
@@ -557,8 +559,7 @@ void calculate_probabilities(Cell* origin, int n, int m){
         int i = 0;
         while (current_solution != NULL){
             for (int j = 0; j < n_of_groups; j++){
-                int group_id = groups_ids[j];
-                Group* group = get_group(groups, group_id);
+                Group* group = get_group(groups, groups_ids[j]);
                 if (group->id == current_group->id){
                     group_probability += solutions_probabilities[i] * current_solution->S->data[j][0] / group->cell_count;
                 }

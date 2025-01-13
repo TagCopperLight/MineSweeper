@@ -2,7 +2,7 @@ from itertools import combinations, product
 
 import math
 
-SIZE = 5
+SIZE = 10
 DEBUG = True
 
 def debug(*args, **kwargs):
@@ -225,7 +225,7 @@ def matrix_mult(m1, m2):
 
 
 def calculate_probabilities_matrices():
-    n, m = 3, 4
+    n, m = 6, 6
     tiles = [[-1 for _ in range(n)] for _ in range(m)]
     # tiles[1][1] = 0
     # tiles[1][2] = 2
@@ -247,8 +247,8 @@ def calculate_probabilities_matrices():
     # tiles[3][3] = 1
     # tiles[3][4] = 4
 
-    tiles[1][1] = 2
-    tiles[2][1] = 1
+    # tiles[1][1] = 2
+    # tiles[2][1] = 1
 
     # tiles[2][2] = 2
     # tiles[2][3] = 2
@@ -259,6 +259,13 @@ def calculate_probabilities_matrices():
     # tiles[4][2] = 3
     # tiles[4][3] = 2
     # tiles[4][4] = 2
+
+    tiles[2][1] = 1
+    tiles[2][2] = 0
+    tiles[2][3] = 1
+    tiles[3][1] = 1
+    tiles[3][2] = 0
+    tiles[4][2] = 1
 
     show_board(tiles, n)
 
@@ -402,10 +409,6 @@ def calculate_probabilities_matrices():
         for i, solution in enumerate(solutions):
             for j, value in enumerate(solution):
                 if var_names[j] == group:
-                    debug(f"Group: {group}")
-                    debug(f"Solution Probability: {solutions_probabilities[i]}")
-                    debug(f"Value: {value}")
-                    debug(f"Group Cell Count: {groups[group]['cell_count']}")
                     group_probability += solutions_probabilities[i] * value / groups[group]['cell_count']
         groups[group]['probability'] = group_probability
     

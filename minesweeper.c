@@ -52,10 +52,8 @@ Cell* initBoard(int n, int m){
 void addMines (Cell* origin, int numMines, int n, int m){
     int minesPlaced = 0;
     while(minesPlaced < numMines){
-        // int x = rand() % m;
-        // int y = rand() % n;
-        int x = 0;
-        int y = minesPlaced;
+        int x = rand() % m;
+        int y = rand() % n;
 
         Cell* cell = origin;
 
@@ -101,7 +99,7 @@ void printBoard(Cell* origin, int n, int m){
                 } else if(cell->adjacentMines > 0){
                     printf("%d ", cell->adjacentMines);
                 } else {
-                    printf("\033[0m ");          // Blanc pour une case vide
+                    printf("\033[0m  ");          // Blanc pour une case vide
                 }
             } else if(cell->isFlagged){
                 printf("\033[32mD \033[0m");      // Vert pour un drapeau
@@ -119,27 +117,27 @@ void printBoard(Cell* origin, int n, int m){
 void printProbabilityBoard(Cell* origin, int n, int m){
     printf("   ");
     for (int i = 0; i < m; i++) {
-        printf("%2d ", i);  // Affiche les numéros de colonnes
+        printf("%3d ", i);  // Affiche les numéros de colonnes
     }
     printf("\n");
 
     Cell* rowStart = origin;
     for (int i = 0; i < n; i++) {
-        printf("%2d ", i);  // Affiche les numéros de lignes
+        printf("%3d ", i);  // Affiche les numéros de lignes
         Cell* cell = rowStart;
         for (int j = 0; j < m; j++) {
             if(cell->isRevealed){
                 if(cell->isMine){
-                    printf("\033[31m# \033[0m");  // Rouge pour une mine révélée
+                    printf("  \033[31m# \033[0m");  // Rouge pour une mine révélée
                 } else if(cell->adjacentMines > 0){
-                    printf("%2d ", cell->adjacentMines);
+                    printf("%3d ", cell->adjacentMines);
                 } else {
-                    printf("\033[0m ");          // Blanc pour une case vide
+                    printf("\033[0m    ");          // Blanc pour une case vide
                 }
             } else if(cell->isFlagged){
                 printf("\033[32mD \033[0m");      // Vert pour un drapeau
             } else {
-                printf("%2d ", (int)(cell->probability * 100));
+                printf("%3d ", (int)(cell->probability * 100));
             }
             if (j < m-1) cell = cell->adjacentCells[4];  // Déplace vers la droite
         }
@@ -159,30 +157,48 @@ void freeBoard(Cell* board, int size){
     }
 }
 
+void recursive_reveal(Cell* cell){
+    if(cell->isRevealed || cell->isFlagged) return;
+    cell->isRevealed = true;
+    if(cell->adjacentMines == 0){
+        for(int i = 0; i < 8; i++){
+            if(cell->adjacentCells[i] != NULL){
+                recursive_reveal(cell->adjacentCells[i]);
+            }
+        }
+    }
+}
+
 // Fonction principale
 int main(){
     int x,y;
     char action;
-    int n = 4;
-    int m = 3;
+    int n = 10;
+    int m = 10;
 
     Cell* board = initBoard(n, m);
     printf("Board initialized\n");
-    addMines(board, 2, n, m);
+    addMines(board, 20, n, m);
     printf("Mines added\n");
 
-    Cell* cell = board;
-    cell = cell->adjacentCells[4];
-    cell = cell->adjacentCells[6];
-    cell->isRevealed = true;
-    cell = cell->adjacentCells[6];
-    cell->isRevealed = true;
+    int revealx[] = {3, 2, 2, 2, 3, 3, 4, 4, 4, 0, 5, 5, 5, 6, 7};
+    int revealy[] = {4, 2, 7, 8, 7, 8, 7, 8, 9, 9, 2, 8, 9, 7, 3};
+
+    for(int i = 0; i < 15; i++){
+        Cell* cell = board;
+        for (int j = 0; j < revealx[i]; j++) {
+            cell = cell->adjacentCells[6];
+        }
+        for (int j = 0; j < revealy[i]; j++) {
+            cell = cell->adjacentCells[4];
+        }
+        // recursive_reveal(cell);
+    }
 
     while(1){
         printBoard(board, n, m);
         calculate_probabilities(board, n, m);
         printProbabilityBoard(board, n, m);
-        exit(0);
         printf("Entrez l'action (r pour révéler, f pour drapeau, q pour quitter): ");
         scanf(" %c", &action);
         if (action == 'q') {
@@ -195,6 +211,28 @@ int main(){
         if (x < 0 || x >= n || y < 0 || y >= m) {
             printf("Coordonnées invalides.\n");
             continue;
+        }
+
+        if (action == 'r'){
+            Cell* cell = board;
+            for (int i = 0; i < x; i++) {
+                cell = cell->adjacentCells[6];
+            }
+            for (int i = 0; i < y; i++) {
+                cell = cell->adjacentCells[4];
+            }
+            recursive_reveal(cell);
+        } else if (action == 'f'){
+            Cell* cell = board;
+            for (int i = 0; i < x; i++) {
+                cell = cell->adjacentCells[6];
+            }
+            for (int i = 0; i < y; i++) {
+                cell = cell->adjacentCells[4];
+            }
+            cell->isFlagged = !cell->isFlagged;
+        } else {
+            printf("Action invalide.\n");
         }
     }
     return 0;
