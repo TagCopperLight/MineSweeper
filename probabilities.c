@@ -74,9 +74,10 @@ bool float_in_matrix(Matrix* matrix, float value){
     return false;
 }
 
-Group* create_group(int id, Group* next, int n, int m){
+Group* create_group(int id, Group* next, float* column, int n, int m){
     Group* group = malloc(sizeof(Group));
     group->id = id;
+    group->column = column;
     group->cell_count = 0;
     group->lower_bound = 0;
     group->upper_bound = 0;
@@ -90,6 +91,24 @@ Group* get_group(Group* groups, int id){
     Group* group = groups;
     while (group != NULL){
         if (group->id == id){
+            return group;
+        }
+        group = group->next;
+    }
+    return NULL;
+}
+
+Group* get_group_by_column(Group* groups, float* column, int size){
+    Group* group = groups;
+    while (group != NULL){
+        bool is_same = true;
+        for (int i = 0; i < size; i++){
+            if (group->column[i] != column[i]){
+                is_same = false;
+                break;
+            }
+        }
+        if (is_same){
             return group;
         }
         group = group->next;
@@ -190,8 +209,8 @@ int nCr(int n, int r){
 
 void calculate_probabilities(Cell* origin, int n, int m){
     Matrix* A = create_adjacency_matrix(n, m);
-    printf("A:\n");
-    print_matrix(A);
+    // printf("A:\n");
+    // print_matrix(A);
 
     Matrix* v = create_matrix(n*m, 1);
     for (int i = 0; i < n; i++){
@@ -209,8 +228,8 @@ void calculate_probabilities(Cell* origin, int n, int m){
         }
     }
 
-    printf("\nv:\n");
-    print_matrix(v);
+    // printf("\nv:\n");
+    // print_matrix(v);
 
     int n_of_reveald_cells = 0;
     for (int i = 0; i < n*m; i++){
@@ -219,7 +238,7 @@ void calculate_probabilities(Cell* origin, int n, int m){
         }
     }
 
-    printf("\nn_of_reveald_cells: %d\n", n_of_reveald_cells);
+    // printf("\nn_of_reveald_cells: %d\n", n_of_reveald_cells);
 
     if (n_of_reveald_cells == 0 || n_of_reveald_cells == n*m){
         return;
@@ -235,9 +254,9 @@ void calculate_probabilities(Cell* origin, int n, int m){
         }
     }
 
-    printf("\nrevealed_cells:\n");
-    print_matrix(revealed_cells);
-
+    // printf("\nrevealed_cells:\n");
+    // print_matrix(revealed_cells);
+    // A_prime represents the matrix A with only the lines of the revealed cells
     Matrix* A_prime = create_matrix(n_of_reveald_cells, n*m);
     for (int i = 0; i < n_of_reveald_cells; i++){
         for (int j = 0; j < n*m; j++){
@@ -245,19 +264,22 @@ void calculate_probabilities(Cell* origin, int n, int m){
         }
     }
 
-    printf("\nA':\n");
-    print_matrix(A_prime);
+    // printf("\nA':\n");
+    // print_matrix(A_prime);
 
     Matrix* v_prime = create_matrix(n_of_reveald_cells, 1);
     for (int i = 0; i < n_of_reveald_cells; i++){
         v_prime->data[i][0] = v->data[(int)revealed_cells->data[0][i]][0];
     }
 
-    printf("\nv':\n");
-    print_matrix(v_prime);
+    // printf("\nv':\n");
+    // print_matrix(v_prime);
 
     int n_of_null_columns = 0;
     for (int i = 0; i < n*m; i++){
+        if (float_in_matrix(revealed_cells, i)){
+            continue;
+        }
         int sum = 0;
         for (int j = 0; j < n_of_reveald_cells; j++){
             sum += A_prime->data[j][i];
@@ -267,9 +289,10 @@ void calculate_probabilities(Cell* origin, int n, int m){
         }
     }
 
-    printf("\nn_of_null_columns: %d\n", n_of_null_columns);
+    // printf("\nn_of_null_columns: %d\n", n_of_null_columns);
 
     int m_prime = n*m - n_of_null_columns - n_of_reveald_cells;
+    // printf("\nm_prime: %d\n", m_prime);
 
     Matrix* A_prime_filtered = create_matrix(n_of_reveald_cells, m_prime);
     k = 0;
@@ -290,12 +313,11 @@ void calculate_probabilities(Cell* origin, int n, int m){
         k++;
     }
 
-    printf("\nA'_filtered:\n");
-    print_matrix(A_prime_filtered);
+    // printf("\nA'_filtered:\n");
+    // print_matrix(A_prime_filtered);
 
     Group* groups = NULL;
     int n_of_groups = 0;
-    int* groups_ids = malloc(n*m * sizeof(int));
 
     for (int i = 0; i < n*m; i++){
         if (float_in_matrix(revealed_cells, i)){
@@ -313,29 +335,22 @@ void calculate_probabilities(Cell* origin, int n, int m){
         for (int j = 0; j < n_of_reveald_cells; j++){
             column[j] = A_prime->data[j][i];
         }
-        int column_id = 0;
-        for (int j = 0; j < n_of_reveald_cells; j++){
-            column_id = (column_id << 1) | (int)column[j];
-        }
 
-        Group* group = get_group(groups, column_id);
+        Group* group = get_group_by_column(groups, column, n_of_reveald_cells);
         if (group == NULL){
-            group = create_group(column_id, groups, n, m);
+            group = create_group(n_of_groups, groups, column, n, m);
             groups = group;
-            groups_ids[n_of_groups] = column_id;
             n_of_groups++;
         }
 
         group->cells[group->cell_count] = i;
         group->cell_count++;
         group->upper_bound++;
-
-        free(column);
     }
 
-    printf("\nGroups:\n");
-    print_group(groups);
-    printf("\nn_of_groups: %d\n", n_of_groups);
+    // printf("\nGroups:\n");
+    // print_group(groups);
+    // printf("\nn_of_groups: %d\n", n_of_groups);
 
     Matrix* A_second = create_matrix(n_of_reveald_cells, n_of_groups);
     k = n_of_groups - 1;
@@ -348,8 +363,8 @@ void calculate_probabilities(Cell* origin, int n, int m){
         group = group->next;
     }
 
-    printf("\nA_second:\n");
-    print_matrix(A_second);
+    // printf("\nA_second:\n");
+    // print_matrix(A_second);
 
     Matrix* system = create_matrix(n_of_reveald_cells, n_of_groups + 1);
     for (int i = 0; i < n_of_reveald_cells; i++){
@@ -359,20 +374,20 @@ void calculate_probabilities(Cell* origin, int n, int m){
         system->data[i][n_of_groups] = v_prime->data[i][0];
     }
 
-    printf("\nSystem:\n");
-    print_matrix(system);
+    // printf("\nSystem:\n");
+    // print_matrix(system);
 
-    printf("\nGroup Ids:\n");
-    for (int i = 0; i < n_of_groups; i++){
-        printf("%d ", groups_ids[i]);
-    }
-    printf("\n");
+    // printf("\nGroup Ids:\n");
+    // for (int i = 0; i < n_of_groups; i++){
+    //     printf("%d ", i);
+    // }
+    // printf("\n");
 
     for (int i = 0; i < n_of_reveald_cells; i++){
         float* equation = system->data[i];
         for (int j = 0; j < n_of_groups - 1; j++){
             if (equation[j] == 1){
-                Group* group = get_group(groups, groups_ids[j]);
+                Group* group = get_group(groups, j);
                 if (equation[n_of_groups] < group->lower_bound){
                     group->upper_bound = equation[n_of_groups];
                 }
@@ -380,13 +395,13 @@ void calculate_probabilities(Cell* origin, int n, int m){
         }
     }
 
-    printf("\nGroups after bonds:\n");
-    print_group(groups);
+    // printf("\nGroups after bonds:\n");
+    // print_group(groups);
 
     gauss_jordan(system);
 
-    printf("\nSystem after gauss-jordan:\n");
-    print_matrix(system);
+    // printf("\nSystem after gauss-jordan:\n");
+    // print_matrix(system);
 
     Solution* solutions = NULL;
     int n_of_solutions = 0;
@@ -411,11 +426,11 @@ void calculate_probabilities(Cell* origin, int n, int m){
         }
     }
 
-    printf("\nPivot columns:\n");
-    for (int i = 0; i < n_of_pivot_columns; i++){
-        printf("%d ", pivot_columns[i]);
-    }
-    printf("\nn_of_pivot_columns: %d\n", n_of_pivot_columns);
+    // printf("\nPivot columns:\n");
+    // for (int i = 0; i < n_of_pivot_columns; i++){
+    //     printf("%d ", pivot_columns[i]);
+    // }
+    // printf("\nn_of_pivot_columns: %d\n", n_of_pivot_columns);
 
     int* free_columns = malloc(n_of_groups * sizeof(int));
     int n_of_free_columns = 0;
@@ -433,16 +448,16 @@ void calculate_probabilities(Cell* origin, int n, int m){
         }
     }
 
-    printf("\nFree columns:\n");
-    for (int i = 0; i < n_of_free_columns; i++){
-        printf("%d ", free_columns[i]);
-    }
-    printf("\nn_of_free_columns: %d\n", n_of_free_columns);
+    // printf("\nFree columns:\n");
+    // for (int i = 0; i < n_of_free_columns; i++){
+    //     printf("%d ", free_columns[i]);
+    // }
+    // printf("\nn_of_free_columns: %d\n", n_of_free_columns);
 
     int** free_columns_ranges = malloc(n_of_free_columns * sizeof(int*));
     int* free_columns_ranges_sizes = malloc(n_of_free_columns * sizeof(int));
     for (int i = 0; i < n_of_free_columns; i++){
-        Group* group = get_group(groups, groups_ids[free_columns[i]]);
+        Group* group = get_group(groups, free_columns[i]);
 
         int lower_bound = group->lower_bound;
         int upper_bound = group->upper_bound;
@@ -456,14 +471,14 @@ void calculate_probabilities(Cell* origin, int n, int m){
         }
     }
 
-    printf("\nFree columns ranges:\n");
-    for (int i = 0; i < n_of_free_columns; i++){
-        printf("Group %d: ", groups_ids[free_columns[i]]);
-        for (int j = 0; j < free_columns_ranges_sizes[i]; j++){
-            printf("%d ", free_columns_ranges[i][j]);
-        }
-    }
-    printf("\n\n");
+    // printf("\nFree columns ranges:\n");
+    // for (int i = 0; i < n_of_free_columns; i++){
+    //     printf("Group %d: ", free_columns[i]);
+    //     for (int j = 0; j < free_columns_ranges_sizes[i]; j++){
+    //         printf("%d ", free_columns_ranges[i][j]);
+    //     }
+    // }
+    // printf("\n\n");
 
     int* current_indices = calloc(n_of_free_columns, sizeof(int));
 
@@ -480,7 +495,7 @@ void calculate_probabilities(Cell* origin, int n, int m){
 
         bool is_valid = true;
         for (int i = 0; i < n_of_groups; i++){
-            Group* group = get_group(groups, groups_ids[i]);
+            Group* group = get_group(groups, i);
 
             if (solution->data[i][0] < group->lower_bound || solution->data[i][0] > group->upper_bound){
                 is_valid = false;
@@ -513,22 +528,22 @@ void calculate_probabilities(Cell* origin, int n, int m){
         }
     }
 
-    printf("\nSolutions:\n");
-    Solution* current_solution = solutions;
-    while (current_solution != NULL){
-        print_matrix(current_solution->S);
-        printf("\n");
-        current_solution = current_solution->next;
-    }
+    // printf("\nSolutions:\n");
+    // Solution* current_solution = solutions;
+    // while (current_solution != NULL){
+    //     print_matrix(current_solution->S);
+    //     printf("\n");
+    //     current_solution = current_solution->next;
+    // }
 
     float* solutions_probabilities = malloc(n_of_solutions * sizeof(float));
-    current_solution = solutions;
+    Solution* current_solution = solutions;
 
     k = 0;
     while (current_solution != NULL){
         float probability = 1;
         for (int i = 0; i < n_of_groups; i++){
-            Group* group = get_group(groups, groups_ids[i]);
+            Group* group = get_group(groups, i);
             probability *= nCr(group->cell_count, (int)current_solution->S->data[i][0]);
         }
         solutions_probabilities[k] = probability;
@@ -543,14 +558,14 @@ void calculate_probabilities(Cell* origin, int n, int m){
         solutions_probabilities[i] /= sum;
     }
 
-    printf("\nProbabilities:\n");
-    current_solution = solutions;
-    for (int i = 0; i < n_of_solutions; i++){
-        print_matrix(current_solution->S);
-        printf("Probability: %f\n", solutions_probabilities[i]);
-        printf("\n");
-        current_solution = current_solution->next;
-    }
+    // printf("\nProbabilities:\n");
+    // current_solution = solutions;
+    // for (int i = 0; i < n_of_solutions; i++){
+    //     print_matrix(current_solution->S);
+    //     printf("Probability: %f\n", solutions_probabilities[i]);
+    //     printf("\n");
+    //     current_solution = current_solution->next;
+    // }
 
     Group* current_group = groups;
     while (current_group != NULL){
@@ -559,7 +574,7 @@ void calculate_probabilities(Cell* origin, int n, int m){
         int i = 0;
         while (current_solution != NULL){
             for (int j = 0; j < n_of_groups; j++){
-                Group* group = get_group(groups, groups_ids[j]);
+                Group* group = get_group(groups, j);
                 if (group->id == current_group->id){
                     group_probability += solutions_probabilities[i] * current_solution->S->data[j][0] / group->cell_count;
                 }
@@ -571,8 +586,8 @@ void calculate_probabilities(Cell* origin, int n, int m){
         current_group = current_group->next;
     }
 
-    printf("\nGroups with probabilities:\n");
-    print_group(groups);
+    // printf("\nGroups with probabilities:\n");
+    // print_group(groups);
 
     for (int i = 0; i < n; i++){
         Cell* cell = origin;
@@ -581,7 +596,7 @@ void calculate_probabilities(Cell* origin, int n, int m){
         }
         for (int j = 0; j < m; j++){
             for (int k = 0; k < n_of_groups; k++){
-                Group* group = get_group(groups, groups_ids[k]);
+                Group* group = get_group(groups, k);
                 for (int l = 0; l < group->cell_count; l++){
                     if (group->cells[l] == i*m + j){
                         cell->probability = group->probability;

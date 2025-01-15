@@ -11,6 +11,7 @@ typedef struct Matrix {
 
 typedef struct Group {
     int id;
+    float* column;
     int cell_count;
     int lower_bound;
     int upper_bound;
@@ -30,8 +31,9 @@ void print_matrix(Matrix* matrix);
 Matrix* create_adjacency_matrix(int n, int m);
 bool float_in_matrix(Matrix* matrix, float value);
 
-Group* create_group(int id, Group* next, int n, int m);
+Group* create_group(int id, Group* next, float* column, int n, int m);
 Group* get_group(Group* groups, int id);
+Group* get_group_by_column(Group* groups, float* column, int size);
 void print_group(Group* group);
 
 void gauss_jordan(Matrix* matrix);
