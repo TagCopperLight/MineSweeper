@@ -1,8 +1,8 @@
-PWD c:/Users/Test/Desktop/Algo 1/LodeRunner/rapport
+PWD e:/Bureau/Devloppement/ENSSAT/MineSweeper/rapport
 INPUT c:/texlive/2024/texmf.cnf
 INPUT c:/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2024/texmf-var/web2c/xetex/xelatex.fmt
-INPUT c:/Users/Test/Desktop/Algo 1/LodeRunner/rapport/Template.tex
+INPUT e:/Bureau/Devloppement/ENSSAT/MineSweeper/rapport/Template.tex
 OUTPUT Template.log
 INPUT ./Template.cls
 INPUT Template.cls

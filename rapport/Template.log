@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.12.5)  8 DEC 2024 23:38
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.20)  18 JAN 2025 15:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Test/Desktop/Algo 1/LodeRunner/rapport/Template.tex"
-(c:/Users/Test/Desktop/Algo 1/LodeRunner/rapport/Template.tex
-LaTeX2e <2024-11-01> patch level 1
+**e:/Bureau/Devloppement/ENSSAT/MineSweeper/rapport/Template.tex
+(e:/Bureau/Devloppement/ENSSAT/MineSweeper/rapport/Template.tex
+LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
 (./Template.cls
 Document Class: Template 2024/11/20 v1.0 Template
@@ -1105,7 +1105,7 @@ Package biblatex Info: ... and expl3
  (c:/texlive/2024/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 ))) (./Configurations/03-Header-Footer.tex (c:/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2024/11/20 v4.4 Extensive control of page headers and footers
+Package: fancyhdr 2024/07/23 v4.3.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip85
 \f@nch@O@elh=\skip86
 \f@nch@O@erh=\skip87
@@ -1726,10 +1726,10 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
 \pydata@fh@_278C491BDD8A53618C149C4AC790DA34.data.minted=\write8
 \openout8 = `_278C491BDD8A53618C149C4AC790DA34.data.minted'.
 
-runsystem(latexminted config  --timestamp 20241208233854 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
+runsystem(latexminted config  --timestamp 20250118154752 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
 
  (./_278C491BDD8A53618C149C4AC790DA34.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20241208233854 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
+runsystem(latexminted cleanconfig  --timestamp 20250118154752 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
 
  (./_minted/default.style.minted) (./_minted/748B3E24F21B920ECF96333D8CC91B86.highlight.minted)
 Package hyperref Info: bookmark level for unknown listing defaults to 0 on input line 49.
@@ -1978,7 +1978,7 @@ Overfull \hbox (12.44945pt too wide) in paragraph at lines 32--32
 
 ] (./Template.aux (./Matter/00-Cover.aux) (./Chapters/01-Introduction.aux) (./Chapters/02-Preliminaires.aux) (./Chapters/03-Strategie.aux) (./Chapters/04-Parametres.aux) (./Chapters/05-Modules.aux) (./Chapters/06-Presentation-Modules.aux) (./Chapters/07-Evaluation-Experimentale.aux) (./Chapters/08-Conclusion.aux))
  ***********
-LaTeX2e <2024-11-01> patch level 1
+LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
 Package rerunfilecheck Info: File `Template.out' has not changed.
@@ -1988,12 +1988,12 @@ Package logreq Info: Writing requests to 'Template.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 54700 strings out of 473964
- 1157753 string characters out of 5736611
- 2244005 words of memory out of 5000000
- 76593 multiletter control sequences out of 15000+600000
+ 54705 strings out of 473995
+ 1157855 string characters out of 5737702
+ 2244060 words of memory out of 5000000
+ 76573 multiletter control sequences out of 15000+600000
  612721 words of font info for 187 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  123i,12n,145p,2481b,5132s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Template.xdv (38 pages, 568564 bytes).
+Output written on Template.xdv (38 pages, 568556 bytes).

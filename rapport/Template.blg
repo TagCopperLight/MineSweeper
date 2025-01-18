@@ -1,15 +1,15 @@
-[1] Config.pm:308> INFO - This is Biber 2.20
-[1] Config.pm:311> INFO - Logfile is 'Template.blg'
-[461] biber-MSWIN64:340> INFO - === 
-[633] Biber.pm:420> INFO - Reading 'Template.bcf'
-[1162] Biber.pm:994> INFO - Found 2 citekeys in bib section 0
-[1221] Biber.pm:4463> INFO - Processing section 0
-[1281] Biber.pm:4654> INFO - Looking for bibtex file 'Bibliography/Bibliography.bib' for section 0
-[1439] bibtex.pm:1713> INFO - LaTeX decoding ...
-[1462] bibtex.pm:1519> INFO - Found BibTeX data source 'Bibliography/Bibliography.bib'
-[1644] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1645] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1651] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[1652] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
-[1682] bbl.pm:676> INFO - Writing 'Template.bbl' with encoding 'UTF-8'
-[1688] bbl.pm:779> INFO - Output to Template.bbl
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is 'Template.blg'
+[88] biber-MSWIN64:340> INFO - === 
+[117] Biber.pm:420> INFO - Reading 'Template.bcf'
+[213] Biber.pm:994> INFO - Found 2 citekeys in bib section 0
+[227] Biber.pm:4463> INFO - Processing section 0
+[239] Biber.pm:4654> INFO - Looking for bibtex file 'Bibliography/Bibliography.bib' for section 0
+[300] bibtex.pm:1713> INFO - LaTeX decoding ...
+[315] bibtex.pm:1519> INFO - Found BibTeX data source 'Bibliography/Bibliography.bib'
+[359] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[360] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[360] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[360] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[367] bbl.pm:676> INFO - Writing 'Template.bbl' with encoding 'UTF-8'
+[369] bbl.pm:779> INFO - Output to Template.bbl
