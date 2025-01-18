@@ -93,7 +93,7 @@ void addMines (Cell* origin, int numMines, int n, int m, int init_x, int init_y)
 void printBoard(Cell* origin, int n, int m){
     printf("   ");
     for (int i = 0; i < m; i++) {
-        printf("%d ", i);  // Affiche les numéros de colonnes
+        printf("%2d ", i);  // Affiche les numéros de colonnes
     }
     printf("\n");
 
@@ -104,9 +104,11 @@ void printBoard(Cell* origin, int n, int m){
         for (int j = 0; j < m; j++) {
             if(cell->isRevealed){
                 if(cell->isMine){
-                    printf("\033[31m# \033[0m");  // Rouge pour une mine révélée
+                    if(m < 9) printf("\033[31m# \033[0m");  // Rouge pour une mine révélée
+                    else printf("\033[31m#  \033[0m");
                 } else if(cell->adjacentMines > 0){
-                    printf("%d ", cell->adjacentMines);
+                    if(m < 0) printf("%d ", cell->adjacentMines);
+                    else printf("%d  ", cell->adjacentMines);
                 } else {
                     printf("\033[0m  ");          // Blanc pour une case vide
                 }
@@ -118,7 +120,8 @@ void printBoard(Cell* origin, int n, int m){
                 } else if(cell->probability == 0){
                     printf("\033[32m# \033[0m");
                 } else {
-                    printf("\033[36m# \033[0m");
+                    if(m < 9) printf("\033[36m# \033[0m");
+                    else printf("\033[36m#  \033[0m");
                 }
             }
             if (j < m-1) cell = cell->adjacentCells[4];  // Déplace vers la droite
@@ -183,9 +186,9 @@ int main(){
 
     int x,y;
     char action;
-    int n = 10;
-    int m = 10;
-    int bombs = 10;
+    int n = 16;
+    int m = 30;
+    int bombs = 99;
 
     Cell* board = initBoard(n, m);
     printf("Board initialized\n");
