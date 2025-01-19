@@ -7,7 +7,7 @@
 
 // Fonction pour initialiser le plateau de jeu
 Cell* initBoard(int n, int m){
-    // Alloue de la mémoire pour le tableau 3D de cellules
+    // Alloue de la mémoire pour le tableau de cellules
     Cell*** board = malloc(n * sizeof(Cell**));
     for(int i = 0; i < n; i++){
         board[i] = malloc(m * sizeof(Cell*));
@@ -42,7 +42,7 @@ Cell* initBoard(int n, int m){
         }
     }
 
-    // Stocke la cellule d'origine et libère la mémoire du tableau 3D
+    // Stocke la cellule d'origine et libère la mémoire du tableau
     Cell* origin = board[0][0];
     for(int i = 0; i < n; i++){free(board[i]);}
     free(board);
@@ -57,10 +57,11 @@ void addMines (Cell* origin, int numMines, int n, int m, int init_x, int init_y)
     }
     int minesPlaced = 0;
     while(minesPlaced < numMines){
-        int x = rand() % m;
-        int y = rand() % n;
+        int x = rand() % n; // 0
+        int y = rand() % m; // 2
 
         if(init_x - 1 <= x && x <= init_x + 1 && init_y - 1 <= y && y <= init_y + 1){
+            // Avoid placing a mine near the initial cell
             continue;
         }
 
@@ -68,10 +69,10 @@ void addMines (Cell* origin, int numMines, int n, int m, int init_x, int init_y)
 
         // Navigate to the target cell
         for(int j = 0; j < x; j++){
-            cell = cell->adjacentCells[4];
+            cell = cell->adjacentCells[6];
         }
         for(int j = 0; j < y; j++){
-            cell = cell->adjacentCells[6];
+            cell = cell->adjacentCells[4];
         }
 
         // Check if the cell already contains a mine
@@ -157,6 +158,7 @@ void freeBoard(Cell* board, int n, int m){
     }
 }
 
+// Fonction pour révéler les cellules adjacentes
 void recursive_reveal(Cell* cell){
     if(cell->isRevealed || cell->isFlagged) return;
     cell->isRevealed = true;
@@ -172,7 +174,6 @@ void recursive_reveal(Cell* cell){
 bool isWon(Cell* board, int numMines, int n, int m){
     int numFlagged = 0;
     bool allRevealed = true;
-
 
     for(int i = 0; i < n; i++){
         Cell* cell = board;
@@ -205,18 +206,34 @@ int main(){
     int m = 30;
     int bombs = 99;
 
+    bool ia_help = false;
+
     Cell* board = initBoard(n, m);
-    printf("Board initialized\n");
     bool mines_added = false;
 
     while(1){
-        calculate_probabilities(board, n, m);
+        if (ia_help) calculate_probabilities(board, n, m);
         printBoard(board, n, m);
-        printf("Entrez l'action (r pour révéler, f pour drapeau, q pour quitter): ");
+        printf("Entrez l'action (r pour révéler, f pour drapeau, h pour activer l'IA, q pour quitter): ");
         scanf(" %c", &action);
         if (action == 'q') {
             printf("Merci d'avoir joué !\n");
             break;
+        }
+
+        if (action == 'h') {
+            if (ia_help) {
+                printf("Désactivation de l'IA.\n");
+            } else {
+                printf("Activation de l'IA.\n");
+            }
+            ia_help = !ia_help;
+            continue;
+        }
+
+        if(action != 'r' && action != 'f'){
+            printf("Action invalide.\n");
+            continue;
         }
 
         printf("Entrez les coordonnées (x y): ");
@@ -239,6 +256,7 @@ int main(){
                 cell = cell->adjacentCells[4];
             }
             if(cell->isMine){
+                cell->isRevealed = true;
                 printBoard(board, n, m);
                 printf("BOOM! Vous avez perdu.\n");
                 exit(0);
