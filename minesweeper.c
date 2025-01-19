@@ -6,7 +6,7 @@
 #include "probabilities.h"
 
 // Fonction pour initialiser le plateau de jeu
-Cell* initBoard(int n, int m){
+Cell* initialize_board(int n, int m){
     // Alloue de la mémoire pour le tableau de cellules
     Cell*** board = malloc(n * sizeof(Cell**));
     for(int i = 0; i < n; i++){
@@ -50,7 +50,7 @@ Cell* initBoard(int n, int m){
 }
 
 // Fonction pour ajouter des mines au plateau
-void addMines (Cell* origin, int numMines, int n, int m, int init_x, int init_y){
+void place_mines(Cell* origin, int numMines, int n, int m, int init_x, int init_y){
     if (numMines > n * m){
         printf("Trop de mines pour le plateau\n");
         exit(1);
@@ -91,7 +91,7 @@ void addMines (Cell* origin, int numMines, int n, int m, int init_x, int init_y)
 }
 
 // Fonction pour afficher le plateau
-void printBoard(Cell* origin, int n, int m){
+void print_board(Cell* origin, int n, int m){
     printf("   ");
     for (int i = 0; i < m; i++) {
         printf("%2d ", i);  // Affiche les numéros de colonnes
@@ -134,7 +134,7 @@ void printBoard(Cell* origin, int n, int m){
 }
 
 // Fonction pour libérer la mémoire du plateau
-void freeBoard(Cell* board, int n, int m){
+void free_board(Cell* board, int n, int m){
     Cell* rowStart = board;
     for (int i = 0; i < n; i++) {
         Cell* cell = rowStart;
@@ -159,19 +159,19 @@ void freeBoard(Cell* board, int n, int m){
 }
 
 // Fonction pour révéler les cellules adjacentes
-void recursive_reveal(Cell* cell){
+void reveal_cell(Cell* cell){
     if(cell->isRevealed || cell->isFlagged) return;
     cell->isRevealed = true;
     if(cell->adjacentMines == 0){
         for(int i = 0; i < 8; i++){
             if(cell->adjacentCells[i] != NULL){
-                recursive_reveal(cell->adjacentCells[i]);
+                reveal_cell(cell->adjacentCells[i]);
             }
         }
     }
 }
 
-bool isWon(Cell* board, int numMines, int n, int m){
+bool is_won(Cell* board, int numMines, int n, int m){
     int numFlagged = 0;
     bool allRevealed = true;
 
@@ -208,12 +208,12 @@ int main(){
 
     bool ia_help = false;
 
-    Cell* board = initBoard(n, m);
+    Cell* board = initialize_board(n, m);
     bool mines_added = false;
 
     while(1){
         if (ia_help) calculate_probabilities(board, n, m);
-        printBoard(board, n, m);
+        print_board(board, n, m);
         printf("Entrez l'action (r pour révéler, f pour drapeau, h pour activer l'IA, q pour quitter): ");
         scanf(" %c", &action);
         if (action == 'q') {
@@ -245,7 +245,7 @@ int main(){
 
         if (action == 'r'){
             if(!mines_added){
-                addMines(board, bombs, n, m, x, y);
+                place_mines(board, bombs, n, m, x, y);
                 mines_added = true;
             }
             Cell* cell = board;
@@ -257,11 +257,11 @@ int main(){
             }
             if(cell->isMine){
                 cell->isRevealed = true;
-                printBoard(board, n, m);
+                print_board(board, n, m);
                 printf("BOOM! Vous avez perdu.\n");
                 exit(0);
             }
-            recursive_reveal(cell);
+            reveal_cell(cell);
         } else if (action == 'f'){
             Cell* cell = board;
             for (int i = 0; i < x; i++) {
@@ -274,12 +274,12 @@ int main(){
         } else {
             printf("Action invalide.\n");
         }
-        if(isWon(board, bombs, n, m)){
-            printBoard(board, n, m);
+        if(is_won(board, bombs, n, m)){
+            print_board(board, n, m);
             printf("Félicitations, vous avez gagné !\n");
             break;
         }
     }
-    freeBoard(board, n, m);
+    free_board(board, n, m);
     return 0;
 }
