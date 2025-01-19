@@ -99,28 +99,28 @@ void printBoard(Cell* origin, int n, int m){
 
     Cell* rowStart = origin;
     for (int i = 0; i < n; i++) {
-        printf("%2d ", i);  // Affiche les numéros de lignes
+        printf("%2d  ", i);  // Affiche les numéros de lignes
         Cell* cell = rowStart;
         for (int j = 0; j < m; j++) {
             if(cell->isRevealed){
                 if(cell->isMine){
-                    if(m < 9) printf("\033[31m# \033[0m");  // Rouge pour une mine révélée
+                    if(m < 9) printf("\033[31m#  \033[0m");  // Rouge pour une mine révélée
                     else printf("\033[31m#  \033[0m");
                 } else if(cell->adjacentMines > 0){
-                    if(m < 0) printf("%d ", cell->adjacentMines);
+                    if(m < 0) printf("%d  ", cell->adjacentMines);
                     else printf("%d  ", cell->adjacentMines);
                 } else {
-                    printf("\033[0m  ");          // Blanc pour une case vide
+                    printf("\033[0m   ");          // Blanc pour une case vide
                 }
             } else if(cell->isFlagged){
-                printf("\033[34mD \033[0m");      // Vert pour un drapeau
+                printf("\033[34mD  \033[0m");      // Vert pour un drapeau
             } else {
                 if(cell->probability == 1){
-                    printf("\033[31m# \033[0m");
+                    printf("\033[31m#  \033[0m");
                 } else if(cell->probability == 0){
-                    printf("\033[32m# \033[0m");
+                    printf("\033[32m#  \033[0m");
                 } else {
-                    if(m < 9) printf("\033[36m# \033[0m");
+                    if(m < 9) printf("\033[36m#  \033[0m");
                     else printf("\033[36m#  \033[0m");
                 }
             }
@@ -133,12 +133,27 @@ void printBoard(Cell* origin, int n, int m){
 }
 
 // Fonction pour libérer la mémoire du plateau
-void freeBoard(Cell* board, int size){
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
-            free(board->adjacentCells[j]);
+void freeBoard(Cell* board, int n, int m){
+    Cell* rowStart = board;
+    for (int i = 0; i < n; i++) {
+        Cell* cell = rowStart;
+        for (int j = 0; j < m; j++) {
+            Cell* current = cell;
+            if (j < m-1) cell = cell->adjacentCells[4];
+            if (j != 0){
+                free(current->adjacentCells);
+                free(current);
+            }
         }
-        free(board);
+        if (i < n-1) rowStart = rowStart->adjacentCells[6];
+    }
+    // Libère la mémoire de la première colonne
+    Cell* cell = board;
+    for (int i = 0; i < n; i++){
+        Cell* current = cell;
+        if (i < n-1) cell = cell->adjacentCells[6];
+        free(current->adjacentCells);
+        free(current);
     }
 }
 
@@ -247,5 +262,6 @@ int main(){
             break;
         }
     }
+    freeBoard(board, n, m);
     return 0;
 }
