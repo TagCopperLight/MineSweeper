@@ -1,28 +1,28 @@
 # Fdb version 4
-["biber Template"] 0 "Template.bcf" "Template.bbl" "Template" 1737305367.79332 -1
+["biber Template"] 0 "Template.bcf" "Template.bbl" "Template" 1737305411.60488 -1
   "Bibliography/Bibliography.bib" 1737211674 1331 f11650f63824c225be526dd673ec8255 ""
-  "Template.bcf" 1737305367 108158 cff94cfe5c36cfd9c0fb9ac83e2c7bb0 "xelatex"
+  "Template.bcf" 1737305411 108158 cff94cfe5c36cfd9c0fb9ac83e2c7bb0 "xelatex"
   (generated)
   "Template.bbl"
   "Template.blg"
   (rewritten before read)
 ["xdvipdfmx"] 0 "Template.xdv" "Template.pdf" "Template" 0 -1
-  "Template.xdv" 1737305367 281128 80bd9b73b9577e10673ef94e132b1071 "xelatex"
+  "Template.xdv" 1737305411 281128 e404da5c2e34d01bcaa97a132f0b46e7 "xelatex"
   (generated)
   "Template.pdf"
   (rewritten before read)
-["xelatex"] 1737305362.1862 "c:/Users/SyncthingServiceAcct/SyncCours/Algo2/Minesweeper/rapport/Template.tex" "Template.xdv" "Template" 1737305367.79387 2
-  "Chapters/01-Introduction.aux" 1737305363 5586 8f5ecf99094da3f68a56a30bf5f4e9cb "xelatex"
+["xelatex"] 1737305406.16064 "c:/Users/SyncthingServiceAcct/SyncCours/Algo2/Minesweeper/rapport/Template.tex" "Template.xdv" "Template" 1737305411.60542 2
+  "Chapters/01-Introduction.aux" 1737305407 5586 8f5ecf99094da3f68a56a30bf5f4e9cb "xelatex"
   "Chapters/01-Introduction.tex" 1737218453 1309 de34558799ed3cd156dd7a86d172ace4 ""
-  "Chapters/02-Preliminaires.aux" 1737305366 6672 0336ffbbc3a7142835f297392f8e9e56 "xelatex"
+  "Chapters/02-Preliminaires.aux" 1737305410 6672 0336ffbbc3a7142835f297392f8e9e56 "xelatex"
   "Chapters/02-Preliminaires.tex" 1737303527 4178 4752067f683909b123dd4b5814a4808f ""
-  "Chapters/03-Strategie.aux" 1737305366 7215 df9407d75bc88c8bf266f20fc3736d0c "xelatex"
+  "Chapters/03-Strategie.aux" 1737305410 7215 df9407d75bc88c8bf266f20fc3736d0c "xelatex"
   "Chapters/03-Strategie.tex" 1737305043 10964 46a0ce6af04b6c6d70e77b9b81e33296 ""
-  "Chapters/05-Modules.aux" 1737305366 6088 0a1203d6a549b248da5bce29ea73f071 "xelatex"
+  "Chapters/05-Modules.aux" 1737305410 6088 0a1203d6a549b248da5bce29ea73f071 "xelatex"
   "Chapters/05-Modules.tex" 1737300856 1449 4dbd0bdf0accdffc1abc8585e069d2f3 ""
-  "Chapters/06-Presentation-Modules.aux" 1737305366 15111 bda210916586fa79c55b363bb33b39f6 "xelatex"
+  "Chapters/06-Presentation-Modules.aux" 1737305410 15111 bda210916586fa79c55b363bb33b39f6 "xelatex"
   "Chapters/06-Presentation-Modules.tex" 1737303255 14605 29ccfc0f8f0ff48f954325c6fd5b0e3e ""
-  "Chapters/08-Conclusion.aux" 1737305366 5585 ff69fdf23b7e2b8e69d804e7f4e7b74c "xelatex"
+  "Chapters/08-Conclusion.aux" 1737305410 5585 ff69fdf23b7e2b8e69d804e7f4e7b74c "xelatex"
   "Chapters/08-Conclusion.tex" 1737303815 458 51df214c827de77dce4a1121cf77fc74 ""
   "Configurations/00-Fonts.tex" 1737211674 516 aeaaf04e0f652dad771c555b27761cf3 ""
   "Configurations/01-Margins.tex" 1737211674 495 2f4e91e7c3c95e4780cd04f09c7f6220 ""
@@ -40,16 +40,16 @@
   "Figures/Theme/Logotypes/ENSSAT-Logo-W.pdf" 1737211674 1806 d86f2c916dad2701ead4fba97ed29b64 ""
   "Figures/exemple-board.png" 1737302409 3109 696714d3ee58788d9e5a8cf76926dda8 ""
   "Figures/groups-on-board.png" 1737302388 8715 edf75ac800bdd3ab22cbeab6743d268f ""
-  "Matter/00-Cover.aux" 1737305363 5292 2c817670af1834cefa347597811e4743 "xelatex"
+  "Matter/00-Cover.aux" 1737305407 5292 2c817670af1834cefa347597811e4743 "xelatex"
   "Matter/00-Cover.tex" 1737211674 2259 0a690c6a64a1fe546c1a7a334aa92301 ""
   "Matter/04-Glossary.tex" 1737211674 507 c0f87b284649fbc7b4a03a6a7ce2b157 ""
   "Matter/05-Acronyms.tex" 1737211674 138 fbb181588502504b38887041166223ac ""
-  "Template.aux" 1737305367 708 0d56b4acc782f9106b7a55f272cd8428 "xelatex"
+  "Template.aux" 1737305411 708 0d56b4acc782f9106b7a55f272cd8428 "xelatex"
   "Template.bbl" 1737304991 486 76d65a242ec496c9b4361af646ff12cb "biber Template"
   "Template.cls" 1737211674 1964 d2ca0ebb9295ce606c469f7abef5424d ""
-  "Template.out" 1737305367 7085 a3f9e487630149fb073ae8a52aa953f7 "xelatex"
+  "Template.out" 1737305411 7085 a3f9e487630149fb073ae8a52aa953f7 "xelatex"
   "Template.tex" 1737305100 887 3071b3bdd58f658a57749eb4a8b37c79 ""
-  "Template.toc" 1737305367 4138 8f879a788193d0f7e38490fa06475e76 "xelatex"
+  "Template.toc" 1737305411 4138 8f879a788193d0f7e38490fa06475e76 "xelatex"
   "Variables/Variables.tex" 1737305158 1518 037d4aed55922d0cc8250172da93736d ""
   "_minted/17CF2CC39B7C3A0ABFF860DCD687361E.highlight.minted" 1737288489 1009 84217c8b316d72857433eea0478e7fdb ""
   "_minted/2C0D620CC2E49F6C1901D88315017798.highlight.minted" 1737290826 298 b3010580b0240b134671b6b4b26e59a4 ""
