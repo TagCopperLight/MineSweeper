@@ -1,64 +1,9 @@
-\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Préliminaires}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Tas-Min}{4}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Procédure \texttt {insert}}{5}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Procédure \texttt {extract\_min}}{5}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}En C}{6}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Algorithme A*}{6}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Pseudo-code}{7}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}En C}{8}{subsection.2.2.2}%
-\contentsline {chapter}{\numberline {3}Stratégie}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Mouvements spéciaux}{11}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Mouvement de combat}{11}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Mouvement de rapprochement}{11}{subsection.3.1.2}%
-\contentsline {chapter}{\numberline {4}Paramètres et Valeur de retour}{12}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Détails}{12}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Structure \texttt {levelinfo}}{13}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Modules}{15}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Liste des modules}{15}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Tas-Min}{15}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}A*}{16}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Outils}{16}{subsection.5.1.3}%
-\contentsline {chapter}{\numberline {6}Présentation des modules}{17}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Module \texttt {is\_valid}}{17}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Description}{17}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Paramètres}{17}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Choix d'Implémentation}{17}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Pseudo-code}{18}{subsection.6.1.4}%
-\contentsline {section}{\numberline {6.2}Module \texttt {get\_closest\_bonus}}{20}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Description}{20}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Paramètres}{20}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Choix d'Implémentation}{20}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}Pseudo-code}{21}{subsection.6.2.4}%
-\contentsline {section}{\numberline {6.3}Module \texttt {combat\_moves}}{22}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Description}{22}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Paramètres}{22}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Choix d'Implémentation}{22}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Pseudo-code}{23}{subsection.6.3.4}%
-\contentsline {section}{\numberline {6.4}Module \texttt {lode\_runner}}{26}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Description}{26}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Paramètres}{26}{subsection.6.4.2}%
-\contentsline {subsection}{\numberline {6.4.3}Choix d'Implémentation}{26}{subsection.6.4.3}%
-\contentsline {subsection}{\numberline {6.4.4}Pseudo-code}{27}{subsection.6.4.4}%
-\contentsline {chapter}{\numberline {7}Évaluation Expérimentale}{30}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Niveau 0}{30}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Résultats}{30}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Analyse des défaites}{30}{subsection.7.1.2}%
-\contentsline {section}{\numberline {7.2}Niveau 1}{31}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Résultats}{31}{subsection.7.2.1}%
-\contentsline {subsection}{\numberline {7.2.2}Analyse des défaites}{31}{subsection.7.2.2}%
-\contentsline {section}{\numberline {7.3}Niveau 2}{31}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Résultats}{31}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}Analyse des défaites}{31}{subsection.7.3.2}%
-\contentsline {section}{\numberline {7.4}Niveau 3}{32}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Résultats}{32}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Analyse des défaites}{32}{subsection.7.4.2}%
-\contentsline {section}{\numberline {7.5}Niveau 4}{33}{section.7.5}%
-\contentsline {subsection}{\numberline {7.5.1}Résultats}{33}{subsection.7.5.1}%
-\contentsline {subsection}{\numberline {7.5.2}Analyse des défaites}{33}{subsection.7.5.2}%
-\contentsline {section}{\numberline {7.6}Niveau supplémentaire}{34}{section.7.6}%
-\contentsline {subsection}{\numberline {7.6.1}Résultats}{34}{subsection.7.6.1}%
-\contentsline {subsection}{\numberline {7.6.2}Analyse des défaites}{34}{subsection.7.6.2}%
-\contentsline {section}{\numberline {7.7}Conclusion et persecpectives d'amélioration}{35}{section.7.7}%
-\contentsline {chapter}{\numberline {8}Conclusion}{36}{chapter.8}%
-\contentsline {backmatter}{References}{37}{chapter*.42}%
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Stratégie}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Preliminaires}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Algorithme naïf}{3}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Dénombrement}{3}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Pseudo-code}{4}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Complexité}{5}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Algorithme optimisé}{5}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Optimizations}{6}{subsection.2.3.1}%

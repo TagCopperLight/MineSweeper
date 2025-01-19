@@ -1,3 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{+w}{        }\PYG{n}{bonus\PYGZus{}list}\PYG{+w}{ }\PYG{n+nf}{get\PYGZus{}closest\PYGZus{}bonus}\PYG{p}{(}\PYG{n}{bonus\PYGZus{}list}\PYG{+w}{ }\PYG{n}{bonusl}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{character\PYGZus{}list}\PYG{+w}{ }\PYG{n}{runner}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{bonus\PYGZus{}list}\PYG{+w}{ }\PYG{n}{already\PYGZus{}seen}\PYG{p}{)}\PYG{p}{;}
-\end{MintedVerbatim}

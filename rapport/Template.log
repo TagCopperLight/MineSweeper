@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.20)  18 JAN 2025 15:47
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.20)  19 JAN 2025 15:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1422,7 +1422,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 18.
 ) (./Configurations/11-Variables.tex)) (./Variables/Variables.tex) (./Matter/04-Glossary.tex) (./Matter/05-Acronyms.tex)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
- (./Template.aux (./Matter/00-Cover.aux) (./Chapters/01-Introduction.aux) (./Chapters/02-Preliminaires.aux) (./Chapters/03-Strategie.aux) (./Chapters/04-Parametres.aux) (./Chapters/05-Modules.aux) (./Chapters/06-Presentation-Modules.aux) (./Chapters/07-Evaluation-Experimentale.aux) (./Chapters/08-Conclusion.aux))
+ (./Template.aux (./Matter/00-Cover.aux) (./Chapters/01-Introduction.aux) (./Chapters/03-Strategie.aux))
 \openout1 = `Template.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 11.
@@ -1648,20 +1648,18 @@ Package fontspec Info:
 (fontspec)             <->"TeX Gyre
 (fontspec)             Pagella/BI/OT:script=latn;language=dflt;letterspace=0.7;letterspace=6;+smcp;mapping=tex-text;"
 
- (./Template.toc
+ (./Template.toc)
+\tf@toc=\write7
+\openout7 = `Template.toc'.
+
+
 
 [1
 
 
 
 
-])
-\tf@toc=\write7
-\openout7 = `Template.toc'.
-
-
-
-[2]
+]
 \openout2 = `Chapters/01-Introduction.aux'.
 
  (./Chapters/01-Introduction.tex
@@ -1693,31 +1691,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--23
 
 
 
-[3
+[2
 
 
 ]
-\openout2 = `Chapters/02-Preliminaires.aux'.
+\openout2 = `Chapters/03-Strategie.aux'.
 
- (./Chapters/02-Preliminaires.tex
+ (./Chapters/03-Strategie.tex
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--15
 
- []
-
-File: Figures/array.png Graphic file (type bmp)
-<Figures/array.png>
-
-Overfull \hbox (19.19992pt too wide) in paragraph at lines 23--29
-[]\TU/TeXGyrePagella(0)/m/n/10.95 Pour gérer les Tas-min, nous avons besoin de deux procédures : \TU/lmtt/m/n/10.95 insert \TU/TeXGyrePagella(0)/m/n/10.95 et \TU/lmtt/m/n/10.95 extract_min\TU/TeXGyrePagella(0)/m/n/10.95 .
- []
-
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 30.
-
-
-[4
+[3
 
 
 
@@ -1726,274 +1710,79 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
 \pydata@fh@_278C491BDD8A53618C149C4AC790DA34.data.minted=\write8
 \openout8 = `_278C491BDD8A53618C149C4AC790DA34.data.minted'.
 
-runsystem(latexminted config  --timestamp 20250118154752 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
+runsystem(latexminted config  --timestamp 20250119154820 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
 
  (./_278C491BDD8A53618C149C4AC790DA34.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20250118154752 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
+runsystem(latexminted cleanconfig  --timestamp 20250119154820 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
 
- (./_minted/default.style.minted) (./_minted/748B3E24F21B920ECF96333D8CC91B86.highlight.minted)
-Package hyperref Info: bookmark level for unknown listing defaults to 0 on input line 49.
- (./_minted/40DBFA9C1FD5AEF6D8A2FD4DC6425957.highlight.minted) (./_minted/640EAFFB4CB60945BA359429B6A47B5C.highlight.minted
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2.
-)
+ (./_minted/default.style.minted) (./_minted/57C006701D9F767BCDA23EDFD290A4CD.highlight.minted
 
-[5] (./_minted/2F4690EFE0941D59C3F5C5AEADA98A9E.highlight.minted)
+[4])
+Package hyperref Info: bookmark level for unknown listing defaults to 0 on input line 93.
 
-[6] (./_minted/984BA0565928922683F85AD3DF577AE3.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 190--194
+Underfull \hbox (badness 10000) in paragraph at lines 106--119
 
  []
 
 
-Underfull \vbox (badness 3713) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 106--119
+
+ []
 
 
 
-[7] (./_minted/0346147DF81EEA808A775064A18206A8.highlight.minted))
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 128--133
+
+ []
+
+File: Figures/exemple-board.png Graphic file (type bmp)
+<Figures/exemple-board.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--168
+
+ []
+
+
+Underfull \vbox (badness 1107) has occurred while \output is active []
+
+
+
+[6]
+File: Figures/groups-on-board.png Graphic file (type bmp)
+<Figures/groups-on-board.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--204
+
+ []
+
+
+
+[7])
 
 [8]
-\openout2 = `Chapters/03-Strategie.aux'.
 
- (./Chapters/03-Strategie.tex
-Chapter 3.
+Package caption Warning: Unused \captionsetup[table] on input line 20.
+See the caption package documentation for explanation.
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--26
-
- []
-
-
-
-[9
-
-
-
-
-]
-File: Figures/diagramme2.png Graphic file (type bmp)
-<Figures/diagramme2.png>
-
-
-[10])
-
-[11]
-\openout2 = `Chapters/04-Parametres.aux'.
-
- (./Chapters/04-Parametres.tex
-Chapter 4.
-(./_minted/3A517AB01C825D49BAD054FC5F4452CE.highlight.minted)
-
-[12
-
-
-
-
-]
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 54.
- (./_minted/547651944F924120805BC93F771A197B.highlight.minted)
-File: Figures/map1.png Graphic file (type bmp)
-<Figures/map1.png>
-
-
-[13]
-Overfull \hbox (6.62085pt too wide) in paragraph at lines 84--89
-\TU/TeXGyrePagella(0)/m/n/10.95 sique. De plus, les coordonnées sont relatives à la carte, c’est-à-dire que le coin supérieur
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 84--89
-
- []
-
-
-Overfull \hbox (18.10469pt too wide) in paragraph at lines 84--89
-\TU/TeXGyrePagella(0)/m/n/10.95 Afin de faciliter le développement, et de laisser une liberté de choix dans l’implémentation,
- []
-
-)
-
-[14]
-\openout2 = `Chapters/05-Modules.aux'.
-
- (./Chapters/05-Modules.tex
-Chapter 5.
-
-
-[15
-
-
-
-
-])
-
-[16]
-\openout2 = `Chapters/06-Presentation-Modules.aux'.
-
- (./Chapters/06-Presentation-Modules.tex
-Chapter 6.
-(./_minted/93348B2D94FE811BECF0629AC8D433E4.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 16--20
-
- []
-
-(./_minted/09CCDB8326FD4D7325553E1FBE34FAD2.highlight.minted
-
-[17
-
-
-
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[18])
-
-[19] (./_minted/88C31DCA10835E325F4A0EF179EBBF9F.highlight.minted)
-
-[20] (./_minted/1E9832095FA6186D92100C1DD0C6AC10.highlight.minted)
-
-[21] (./_minted/AFBB926C55FE1671AFF2A6ECD0CCCAD9.highlight.minted
-LaTeX Font Info:    Font shape `TU/TeXGyrePagella(0)/bx/n' in size <9> not available
-(Font)              Font shape `TU/TeXGyrePagella(0)/b/n' tried instead on input line 2.
-)
-Underfull \hbox (badness 1062) in paragraph at lines 217--217
-[]|\TU/TeXGyrePagella(0)/m/n/10 Structure contenant les informa-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 224--230
-
- []
-
-
-
-[22] (./_minted/E59050140567C7224F14FC660BDBA0BF.highlight.minted
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[23]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[24])
-
-[25] (./_minted/549DC6E411F7AFA2D2A9DFD0C4CC617A.highlight.minted)
-
-[26] (./_minted/257358DF1EDA299BEB661931DA7D179B.highlight.minted
-Underfull \vbox (badness 6978) has occurred while \output is active []
-
-
-
-[27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[28]))
-
-[29]
-\openout2 = `Chapters/07-Evaluation-Experimentale.aux'.
-
- (./Chapters/07-Evaluation-Experimentale.tex
-Chapter 7.
-
-
-[30
-
-
-
-
-]
-
-[31]
-Overfull \hbox (2.83435pt too wide) in paragraph at lines 93--94
-\TU/TeXGyrePagella(0)/m/n/10.95 Malgré un pourcentage de victoires élevé, il y a des défaites pour le niveau 3. Analysons
- []
-
-File: Figures/level3-over.png Graphic file (type bmp)
-<Figures/level3-over.png>
-
-Overfull \hbox (10.16486pt too wide) in paragraph at lines 102--107
-[]\TU/TeXGyrePagella(0)/m/n/10.95 À cette position, le runner joue \TU/lmtt/m/n/10.95 DOWN\TU/TeXGyrePagella(0)/m/n/10.95 , ce qui le coince entre deux ennemis, l’empêchant
- []
-
-
-
-[32]
-File: Figures/level4-over.png Graphic file (type bmp)
-<Figures/level4-over.png>
-
-Overfull \hbox (1.50854pt too wide) in paragraph at lines 137--142
-\TU/TeXGyrePagella(0)/m/n/10.95 Cette erreur provient du mode de mouvement en combat : lorsqu’un combat se déroule
- []
-
-
-
-[33]
-File: Figures/level4.png Graphic file (type bmp)
-<Figures/level4.png>
-File: Figures/level5-over.png Graphic file (type bmp)
-<Figures/level5-over.png>
-
-
-[34])
-
-[35]
-\openout2 = `Chapters/08-Conclusion.aux'.
-
- (./Chapters/08-Conclusion.tex
-Chapter 8.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 4--30
-
- []
-
-
-
-[36
-
-
-
-
-]
-Overfull \hbox (12.44945pt too wide) in paragraph at lines 32--32
-[][]\TU/TeXGyrePagella(0)/m/n/10 Wikipédia (2024b). “  Tas binaire — Wikipédia, l’encyclopédie libre”. In: [En ligne; Page disponible
- []
-
-
-
-[37
-
-
-
-] (./Template.aux (./Matter/00-Cover.aux) (./Chapters/01-Introduction.aux) (./Chapters/02-Preliminaires.aux) (./Chapters/03-Strategie.aux) (./Chapters/04-Parametres.aux) (./Chapters/05-Modules.aux) (./Chapters/06-Presentation-Modules.aux) (./Chapters/07-Evaluation-Experimentale.aux) (./Chapters/08-Conclusion.aux))
+(./Template.aux (./Matter/00-Cover.aux) (./Chapters/01-Introduction.aux) (./Chapters/03-Strategie.aux))
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
 Package rerunfilecheck Info: File `Template.out' has not changed.
-(rerunfilecheck)             Checksum: 9E083F44F7087B88A6EA71ADBD0979A9;8831.
+(rerunfilecheck)             Checksum: 75149EA6AAC9C2AA427E8704D042AA2C;1438.
 Package logreq Info: Writing requests to 'Template.run.xml'.
 \openout1 = `Template.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 54705 strings out of 473995
- 1157855 string characters out of 5737702
- 2244060 words of memory out of 5000000
- 76573 multiletter control sequences out of 15000+600000
- 612721 words of font info for 187 fonts, out of 8000000 for 9000
+ 53928 strings out of 473995
+ 1134447 string characters out of 5737702
+ 2213696 words of memory out of 5000000
+ 75902 multiletter control sequences out of 15000+600000
+ 612641 words of font info for 177 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 123i,12n,145p,2481b,5132s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 123i,13n,145p,2481b,1082s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Template.xdv (38 pages, 568556 bytes).
+Output written on Template.xdv (9 pages, 127772 bytes).

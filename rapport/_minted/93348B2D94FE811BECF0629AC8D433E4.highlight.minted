@@ -1,3 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{+w}{        }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{is\PYGZus{}valid}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{pos}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{action}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{levelinfo}\PYG{+w}{ }\PYG{n}{level}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{levelinfo}\PYG{+w}{ }\PYG{n}{air\PYGZus{}level}\PYG{p}{)}\PYG{p}{;}
-\end{MintedVerbatim}
