@@ -1,50 +1,50 @@
-\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}%
-\contentsline {chapter}{\numberline {2}Préliminaires}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Structure de données}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Cellules adjacentes}{5}{section.2.2}%
-\contentsline {chapter}{\numberline {3}Modules}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Liste des modules}{6}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Démineur}{6}{subsection.3.1.1}%
-\contentsline {chapter}{\numberline {4}Présentation des modules}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Module \texttt {initialize\_board}}{7}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Description}{7}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Paramètres}{7}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Choix d'Implémentation}{7}{subsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.1.4}Pseudo-code}{7}{subsection.4.1.4}%
-\contentsline {section}{\numberline {4.2}Module \texttt {place\_mines}}{9}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Description}{9}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Choix d'Implémentation}{9}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Pseudo-code}{9}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Module \texttt {print\_board}}{10}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Affichage récursif d'une grille de démineur}{10}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Description}{10}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Paramètres}{10}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Choix d'Implémentation}{10}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}Pseudo-code}{10}{subsection.4.4.4}%
-\contentsline {section}{\numberline {4.5}Module \texttt {calculate\_adjacent\_mines}}{11}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Description}{11}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Paramètres}{11}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Choix d'Implémentation}{11}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}Pseudo-code}{11}{subsection.4.5.4}%
-\contentsline {section}{\numberline {4.6}Module \texttt {reveal\_cell}}{12}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Description}{12}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Paramètres}{12}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Choix d'Implémentation}{12}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}Pseudo-code}{12}{subsection.4.6.4}%
-\contentsline {section}{\numberline {4.7}Module \texttt {flag\_cell}}{14}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Description}{14}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Paramètres}{14}{subsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.7.3}Pseudo-code}{14}{subsection.4.7.3}%
-\contentsline {section}{\numberline {4.8}Module \texttt {isLost}}{15}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}Description}{15}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}Paramètres}{15}{subsection.4.8.2}%
-\contentsline {subsection}{\numberline {4.8.3}Pseudo-code}{15}{subsection.4.8.3}%
-\contentsline {chapter}{\numberline {5}Stratégie}{16}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Preliminaires}{16}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Algorithme naïf}{16}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Dénombrement}{16}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Pseudo-code}{17}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Complexité}{18}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}Algorithme optimisé}{18}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Optimisations}{19}{subsection.5.3.1}%
-\contentsline {chapter}{\numberline {6}Conclusion}{22}{chapter.6}%
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Préliminaires}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Structure de données}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Cellules adjacentes}{4}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Modules}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Liste des modules}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Démineur}{5}{subsection.3.1.1}%
+\contentsline {chapter}{\numberline {4}Présentation des modules}{6}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Module \texttt {initialize\_board}}{6}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Description}{6}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Paramètres}{6}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Choix d'Implémentation}{6}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Pseudo-code}{6}{subsection.4.1.4}%
+\contentsline {section}{\numberline {4.2}Module \texttt {place\_mines}}{8}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Description}{8}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Choix d'Implémentation}{8}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Pseudo-code}{8}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Module \texttt {print\_board}}{9}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Affichage récursif d'une grille de démineur}{9}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Description}{9}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Paramètres}{9}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Choix d'Implémentation}{9}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Pseudo-code}{9}{subsection.4.4.4}%
+\contentsline {section}{\numberline {4.5}Module \texttt {calculate\_adjacent\_mines}}{10}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Description}{10}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Paramètres}{10}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Choix d'Implémentation}{10}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}Pseudo-code}{10}{subsection.4.5.4}%
+\contentsline {section}{\numberline {4.6}Module \texttt {reveal\_cell}}{11}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Description}{11}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Paramètres}{11}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Choix d'Implémentation}{11}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Pseudo-code}{11}{subsection.4.6.4}%
+\contentsline {section}{\numberline {4.7}Module \texttt {flag\_cell}}{13}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Description}{13}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Paramètres}{13}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.3}Pseudo-code}{13}{subsection.4.7.3}%
+\contentsline {section}{\numberline {4.8}Module \texttt {isLost}}{14}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Description}{14}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Paramètres}{14}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.3}Pseudo-code}{14}{subsection.4.8.3}%
+\contentsline {chapter}{\numberline {5}Stratégie}{15}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Preliminaires}{15}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Algorithme naïf}{15}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Dénombrement}{15}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Pseudo-code}{16}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Complexité}{17}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Algorithme optimisé}{17}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Optimisations}{18}{subsection.5.3.1}%
+\contentsline {chapter}{\numberline {6}Conclusion}{21}{chapter.6}%

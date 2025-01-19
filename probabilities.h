@@ -27,14 +27,12 @@ typedef struct Solution {
 
 Matrix* create_matrix(int rows, int cols);
 void free_matrix(Matrix* matrix);
-void print_matrix(Matrix* matrix);
 Matrix* create_adjacency_matrix(int n, int m);
 bool float_in_matrix(Matrix* matrix, float value);
 
 Group* create_group(int id, Group* next, float* column, int n, int m);
 Group* get_group(Group* groups, int id);
 Group* get_group_by_column(Group* groups, float* column, int size);
-void print_group(Group* group);
 
 void gauss_jordan(Matrix* matrix);
 float dot_product(float* a, float** b, int size);

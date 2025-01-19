@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.1.13)  19 JAN 2025 17:32
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.1.13)  19 JAN 2025 17:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1425,10 +1425,25 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip119
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 18.
-) (./Configurations/11-Variables.tex)) (./Variables/Variables.tex) (./Matter/04-Glossary.tex) (./Matter/05-Acronyms.tex)
+) (./Configurations/11-Variables.tex)) (./Variables/Variables.tex
+
+./Variables/Variables.tex:9: LaTeX Error: Command \secondauthorname already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 \secondauthor{Florian ABADIE}
+                                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+) (./Matter/04-Glossary.tex) (./Matter/05-Acronyms.tex)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
- (./Template.aux (./Matter/00-Cover.aux) (./Chapters/01-Introduction.aux) (./Chapters/02-Preliminaires.aux) (./Chapters/05-Modules.aux) (./Chapters/06-Presentation-Modules.aux) (./Chapters/03-Strategie.aux) (./Chapters/08-Conclusion.aux))
+ (./Template.aux)
 \openout1 = `Template.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 11.
@@ -1535,13 +1550,16 @@ Package biblatex Info: ... file 'Template.bbl' found.
 Package biblatex Info: Reference section=0 on input line 11.
 Package biblatex Info: Reference segment=0 on input line 11.
 Package hyperref Info: Link coloring ON on input line 11.
- (./Template.out) (./Template.out)
 \@outlinefile=\write6
 \openout6 = `Template.out'.
 
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
 \openout2 = `Matter/00-Cover.aux'.
 
- (./Matter/00-Cover.tex
+(./Matter/00-Cover.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: <default>
@@ -1654,20 +1672,19 @@ Package fontspec Info:
 (fontspec)             <->"TeX Gyre
 (fontspec)             Pagella/BI/OT:script=latn;language=dflt;letterspace=0.7;letterspace=6;+smcp;mapping=tex-text;"
 
- (./Template.toc
+
+No file Template.toc.
+\tf@toc=\write7
+\openout7 = `Template.toc'.
+
+
 
 [1
 
 
 
 
-])
-\tf@toc=\write7
-\openout7 = `Template.toc'.
-
-
-
-[2]
+]
 \openout2 = `Chapters/01-Introduction.aux'.
 
  (./Chapters/01-Introduction.tex
@@ -1699,7 +1716,7 @@ Overfull \hbox (4.99754pt too wide) in paragraph at lines 3--23
 
 
 
-[3
+[2
 
 
 ]
@@ -1715,17 +1732,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--22
 \pydata@fh@_278C491BDD8A53618C149C4AC790DA34.data.minted=\write8
 \openout8 = `_278C491BDD8A53618C149C4AC790DA34.data.minted'.
 
-runsystem(latexminted config  --timestamp 20250119173229 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
+runsystem(latexminted config  --timestamp 20250119174922 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
 
 (./_278C491BDD8A53618C149C4AC790DA34.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20250119173229 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
+runsystem(latexminted cleanconfig  --timestamp 20250119174922 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
 
  (./_minted/default.style.minted) (./_minted/3CB7BDA9A2A3DC745806313653597A8F.highlight.minted
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2.
 
 
-[4
+[3
 
 
 
@@ -1734,14 +1751,14 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
 Package hyperref Info: bookmark level for unknown listing defaults to 0 on input line 36.
 )
 
-[5]
+[4]
 \openout2 = `Chapters/05-Modules.aux'.
 
  (./Chapters/05-Modules.tex
 Chapter 3.
 )
 
-[6
+[5
 
 
 
@@ -1770,45 +1787,45 @@ Overfull \hbox (0.88986pt too wide) in paragraph at lines 34--36
 
 (./_minted/F35B87E6A443DDBADCB273D5D068D31B.highlight.minted
 
-[7
+[6
 
 
 
 
 ])
 
-[8] (./_minted/9756EE3B92132FF728254248B46B7688.highlight.minted
+[7] (./_minted/9756EE3B92132FF728254248B46B7688.highlight.minted
 LaTeX Font Info:    Font shape `TU/TeXGyrePagella(0)/bx/n' in size <9> not available
 (Font)              Font shape `TU/TeXGyrePagella(0)/b/n' tried instead on input line 2.
 ) (./_minted/17CF2CC39B7C3A0ABFF860DCD687361E.highlight.minted)
 
-[9] (./_minted/3563598867E374CD230BF85795FBB962.highlight.minted) (./_minted/DCC3C714ED497F14117382E102B783B0.highlight.minted
+[8] (./_minted/3563598867E374CD230BF85795FBB962.highlight.minted) (./_minted/DCC3C714ED497F14117382E102B783B0.highlight.minted
 
-[10]) (./_minted/EF6E4F80914F8AEA0B0F18DD32413CEE.highlight.minted) (./_minted/2ECC2C8A715513F773390D7709102792.highlight.minted
+[9]) (./_minted/EF6E4F80914F8AEA0B0F18DD32413CEE.highlight.minted) (./_minted/2ECC2C8A715513F773390D7709102792.highlight.minted
 
-[11]) (./_minted/4D8BCDDF0073752D09585BC1E73E167B.highlight.minted) (./_minted/CDBB7DE27B1647461615BB2641F83B7B.highlight.minted
+[10]) (./_minted/4D8BCDDF0073752D09585BC1E73E167B.highlight.minted) (./_minted/CDBB7DE27B1647461615BB2641F83B7B.highlight.minted
 
-[12])
+[11])
 
-[13] (./_minted/B4FBB337BF3256D63403E1C67A61C1C6.highlight.minted) (./_minted/2C0D620CC2E49F6C1901D88315017798.highlight.minted)
+[12] (./_minted/B4FBB337BF3256D63403E1C67A61C1C6.highlight.minted) (./_minted/2C0D620CC2E49F6C1901D88315017798.highlight.minted)
 
-[14] (./_minted/7C5D7755E6F77A9CE6C25B8CACECE53B.highlight.minted) (./_minted/F3715829BC2992BEC704DC5B80C2783C.highlight.minted))
+[13] (./_minted/7C5D7755E6F77A9CE6C25B8CACECE53B.highlight.minted) (./_minted/F3715829BC2992BEC704DC5B80C2783C.highlight.minted))
 
-[15]
+[14]
 \openout2 = `Chapters/03-Strategie.aux'.
 
  (./Chapters/03-Strategie.tex
 Chapter 5.
 
 
-[16
+[15
 
 
 
 
 ] (./_minted/57C006701D9F767BCDA23EDFD290A4CD.highlight.minted
 
-[17])
+[16])
 Underfull \hbox (badness 10000) in paragraph at lines 106--119
 
  []
@@ -1820,7 +1837,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--119
 
 
 
-[18]
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 128--133
 
  []
@@ -1837,7 +1854,7 @@ Underfull \vbox (badness 1107) has occurred while \output is active []
 
 
 
-[19]
+[18]
 File: Figures/groups-on-board.png Graphic file (type bmp)
 <Figures/groups-on-board.png>
 
@@ -1847,42 +1864,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 200--204
 
 
 
-[20])
+[19])
 
-[21]
+[20]
 \openout2 = `Chapters/08-Conclusion.aux'.
 
  (./Chapters/08-Conclusion.tex
 Chapter 6.
 )
 
-[22
+[21
 
 
 
 
 ]
+\openout8 = `_278C491BDD8A53618C149C4AC790DA34.data.minted'.
 
-LaTeX Warning: Empty bibliography on input line 32.
+runsystem(latexminted clean  --timestamp 20250119174922 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
 
-(./Template.aux (./Matter/00-Cover.aux) (./Chapters/01-Introduction.aux) (./Chapters/02-Preliminaires.aux) (./Chapters/05-Modules.aux) (./Chapters/06-Presentation-Modules.aux) (./Chapters/03-Strategie.aux) (./Chapters/08-Conclusion.aux))
+ (./Template.aux (./Matter/00-Cover.aux) (./Chapters/01-Introduction.aux) (./Chapters/02-Preliminaires.aux) (./Chapters/05-Modules.aux) (./Chapters/06-Presentation-Modules.aux) (./Chapters/03-Strategie.aux) (./Chapters/08-Conclusion.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
  ***********
-Package rerunfilecheck Info: File `Template.out' has not changed.
-(rerunfilecheck)             Checksum: A3F9E487630149FB073AE8A52AA953F7;7085.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `Template.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Template.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  A3F9E487630149FB073AE8A52AA953F7;7085.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                Template
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'Template.run.xml'.
 \openout1 = `Template.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 54400 strings out of 473846
- 1150320 string characters out of 5733563
- 2233455 words of memory out of 5000000
- 76426 multiletter control sequences out of 15000+600000
+ 54359 strings out of 473846
+ 1149525 string characters out of 5733563
+ 2208918 words of memory out of 5000000
+ 76405 multiletter control sequences out of 15000+600000
  613473 words of font info for 185 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  123i,13n,145p,2497b,1153s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Template.xdv (23 pages, 344576 bytes).
+Output written on Template.xdv (22 pages, 281128 bytes).
