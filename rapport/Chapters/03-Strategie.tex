@@ -1,59 +1,233 @@
+\setcounter{MaxMatrixCols}{20}
 \chapter{Stratégie}
 \label{cp:strategie}
 
-La stratégie utilisée pour terminer le jeu est construite autour de l'algorithme A* (\autoref{sec:a-star}).
+Même si le démineur est un jeu simple, une IA parfaite n'aurait pas 100\% de victoire. En effet, c'est un jeu de probabilités, et il existe donc des situations dans lesquelles la possibilité de trouver un bombe dans chaque
+case non-révélée est équiprobable. Dans ce cas, l'IA doit faire un choix aléatoire.
 \newline
-On commence par récupérer la liste des bonus par ordre croissant de distance, et on essaie, en utilisant A*, de trouver un chemin pour atteindre le bonus le plus proche.
-\newline
-Si on trouve un chemin vers un des bonus, le runner le prendra : A* a une priorité sur toutes les autres décisions.
-\newline
-Si l'algorithme ne trouve aucun chemin vers aucun bonus (ce qui devient plus probable à mesure que le nombre d'ennemis augmente), le runner utilise des fonctions de mouvements dits "spéciaux" pour se déplacer.
-\newline\newline
-Ceci signifie que A* doit prendre en compte les ennemis, mais il y a plusieurs avantages à utiliser cette stratégie :
+Notre stratégie sera donc de calculer la probabilité de chaque case non-révélée de contenir une bombe, et de choisir une des cases avec la plus faible probabilité.
 
-\begin{enumerate}
-    \item On fait une confiance totale à A* : s'il sait qu'un ennemi n'est pas dangereux, il n'y a pas besoin de faire de mouvements pour l'éviter.
-    \item On ne fait pas de mouvements inutiles : si A* trouve un chemin, c'est le chemin le plus court.
-    \item Si A* ne trouve pas de chemin, on est sûr qu'il n'y en a pas, et on peut donc se permettre de faire des mouvements "spéciaux".
-\end{enumerate}
-Néanmoins, il y a un inconvénient : on ne peut pas prédire l'évolution de la position des ennemis.
-Autrement dit les choix de A* se basent sur la situation à l'instant $t$.
+\section{Preliminaires}
+
+Dans toute la suite de ce chapitre, on considère une grille de démineur de taille $n \times m$ avec $b$ bombes, et on note $G$ la grille, $G_{i,j}$ la case à la ligne $i$ et la colonne $j$.
 \newline
-C'est pour cela qu'on l'appelle à chaque tour, pour prendre en compte les nouvelles positions des ennemis.
-\newline\newline
-Heureusement, contrairement à l'imprécision de la position des ennemis qui augmente avec la distance, la dangerosité des ennemis diminue.
-L'algorithme peut être à peu près sûr de la position des ennemis proches (les ennemis dangereux), et donc de les éviter.
-\newpage
-De plus, au lieu de passer la carte à A*, on lui passe une carte modifiée, dans laquelle les ennemis sont ajoutés, ainsi qu'une zone d'ennemis autour de chaque ennemi.
+$G_{i,j} = -1$ si la case n'est pas révélée, $G_{i,j} = k$ si la case est révélée et contient $k$ bombes autour d'elle.
+
+\section{Algorithme naïf}
+
+Calculer la probabilité de chaque case non-révélée de contenir une bombe est une tâche complexe : une information à un bout de la grille peut influencer une case à l'autre bout.
 \newline
-Cela permet d'éviter que le runner ne se rapproche à moins d'une case d'un ennemi, et ainsi de s'assurer que, même si le prochain tour est celui des ennemis, le runner ne sera pas en danger.
+Intuitivement, on commence par essayer de faire du dénombrement : on calcule toutes les combinaisons possibles de bombes, et ne garde que les combinaisons valides, et on compte le nombre de fois où chaque case est une bombe.
+
+\subsection{Dénombrement}
+
+On construit un algorithme qui, pour une grille $G$ donnée calcule toutes les combinaisons possibles de bombes, et ne garde que les combinaisons valides.
+\newline
+Il y a deux difficultés majeures à résoudre :
+\begin{itemize}
+    \item Comment valider une combinaison ?
+    \item Comment éviter de tester des combinaisons qui sont évidemment invalides ?
+\end{itemize}
+
+Pour répondre à ces problèmes, on introduit une idée simple, mais qui nous sera utile dans la suite : on va grouper des cases ensemble.
+\newline
+On définit un groupe comme un ensemble de cases non-révélées. 
+\newline
+Dans cet algorithme, pour chaque case révélée, on crée un groupe avec les cases adjacentes.
+\newline
+On peut alors, pour chaque combinaison de 2 groupes, trouver l'intersection de ces derniers, et poser une condition sur les cases de cette intersection.
+
+\subsection{Pseudo-code}
+
+\begin{longlisting}
+    \begin{minted}{text}
+        Fonction Probabilite
+        Parametres :
+            n en entier, m en entier
+            G en matrice d'entiers de taille n x m
+        Declarations :
+            groupes en liste de listes de couples d'entiers
+            intersections en liste de listes de couples d'entiers
+            P en matrice d'entiers
+            combinaisons en liste de listes de couples d'entiers
+            combinaisons_valides en entier
+        Sortie :
+            P en matrice de reels de taille n x m
+        Debut
+            P = matrice de 0 de taille n x m
+    
+            groupes = liste des groupes des cases révélées
+
+            intersections = liste des intersections de chaque combinaison de 2 groupes
+
+            combinaisons = []
+            Pour k allant de 1 a |groupes| faire
+                Ajouter a combinaisons une liste de toutes les combinaisons possibles de G[i][j] bombes dans les cases de groupes[k]
+            FinPour
+
+            combinaisons_valides = 0
+            Pour chaque element du produit cartesien de combinaisons faire
+                Pour chaque intersection dans intersections faire
+                    Si l'intersection contient plus de bombes que le nombre de bombes autour de chaque case dans l'intersection alors
+                        Continuer
+                    FinSi
+                FinPour
+
+                Pour chaque case dans l'element faire
+                    P[case] += 1
+                FinPour
+                combinaisons_valides += 1
+            FinPour
+
+            Pour i allant de 1 a n faire
+                Pour j allant de 1 a m faire
+                    Si G[i,j] = -1 alors
+                        P[i,j] /= combinaisons_valides
+                    FinSi
+                FinPour
+            FinPour
+
+            Retourner P
+        Fin
+    \end{minted}
+    \caption{Pseudo-code de l'algorithme naif de calcul de probabilité}
+    \label{listing:algo-naif}
+\end{longlisting}
+
+\subsection{Complexité}
+
+La complexité de cet algorithme est très élevée, car il faut calculer le produit cartésien de toutes les combinaisons possibles de bombes : la complexité est exponentielle en le nombre de cases non-révélées.
+Cet algorithme est donc inutilisable pour des grilles de taille moyenne.
+\newline
+Si on veut calculer les probabilités de chaque case, il va falloir radicalement optimiser cette stratégie.
+
+\section{Algorithme optimisé}
+
+Pour optimiser cet algorithme, on va représenter notre problème sous une forme différente. 
+\newline
+On commence par définir un graphe $G'$, où chaque sommet est une case, et où il y a une arête entre deux cases si elles sont adjacentes.
+On construit alors la matrice A de taille $n*m \times n*m$ telle que $A_{(i, j), (i', j')} = 1$ si ${(i, j)}$ et ${(i', j')}$ sont adjacents, et $0$ sinon. C'est la matrice d'adjacence de $G'$.
+\newline
+On remarque alors que l'ont peut très facilement retrouver la matrice $G$ complète (c'est à dire avec toutes les cases révélées) à partir de $A$ et de la position des bombes.
+\newline
+\newline
+Notons $B$ la colonne de taille $n*m$ telle que $B_i = 1$ si la case $i$ contient une bombe, et $0$ sinon.
+De même, soit $v$ la colonne de taille $n*m$ telle que $v_i = G_{i,j}$ si la case $i$ est révélée, et $-1$ sinon.
+\newline
+\newline
+On a alors la relation suivante :
+\[
+A \cdot B = v
+\]
+\newline
+Cette relation est un système linéaire, que l'on peut résoudre pour trouver toutes les colonnes $B$ qui satisfassent $v$ (c'est à dire toutes les positions possible de bombes qui respectent les cases révélées).
+Nous pouvons alors calculer la probabilité de chaque case non-révélée de contenir une bombe.
+
+\subsection{Optimisations}
+
+Représenter le problème sous forme de système linéaire ne change pas la complexité de la résolution du problème, résoudre le système entier revient à la même complexité que l'algorithme naïf.
+Mais cette représentation nous permet de faire des optimisations qui vont nous permettre de réduire la complexité de l'algorithme.
+\newline
+\newline
+Prenons un exemple simple :
 
 \begin{figure}[!htpb]
     \centering
-    \includegraphics[width=0.75\linewidth]{Figures/diagramme2.png}
-    \caption[Logigramme de la stratégie.]{Logigramme de la stratégie.}
-    \label{fig:logigramme}
+    \includegraphics[width=0.2\linewidth]{Figures/exemple-board.png}
+    \caption[Exemple de grille]{Exemple de grille.}
+    \label{fig:exemple-board}
 \end{figure}
 
-\newpage
+On obtient les matrices suivantes : (A est symétrique, on ne montre que la moitié de la matrice)
+\[
+    A = \begin{pmatrix}
+        0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+          & 0 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+          &   & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+          &   &   & 0 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
+          &   &   &   & 0 & 1 & 1 & 1 & 1 & 0 & 0 & 0 \\
+          &   &   &   &   & 0 & 0 & 1 & 1 & 0 & 0 & 0 \\
+          &   &   &   &   &   & 0 & 1 & 0 & 1 & 1 & 0 \\
+          &   &   &   &   &   &   & 0 & 1 & 1 & 1 & 1 \\
+          &   &   &   &   &   &   &   & 0 & 0 & 1 & 1 \\
+          &   &   &   &   &   &   &   &   & 0 & 1 & 0 \\
+          &   &   &   &   &   &   &   &   &   & 0 & 1 \\
+          &   &   &   &   &   &   &   &   &   &   & 0 \\
+    \end{pmatrix}
+    \hspace{1cm}
+    v = \begin{bmatrix} -1 \\-1 \\-1 \\-1 \\2 \\-1 \\ -1 \\1 \\-1 \\-1 \\-1 \\-1 \\ \end{bmatrix}
+\]
 
-\section{Mouvements spéciaux}
-
-Les mouvements spéciaux sont les mouvements effectués quand A* ne trouve aucun chemin.
-Ils tentent, sans garantie de succès, d'améliorer la situation pour que A* puisse trouver un chemin lors d'un prochain tour.
+On commence par ne garder que les lignes de $A$ et de $v$ qui correspondent à des cases révélées.
+On peut enlever ces lignes car on ne connait pas la valeur de ces cases dans $v$, les utiliser pour résoudre le système ne nous apporterait aucune information.
 \newline
-Ils sont, contrairement à A*, beaucoup plus spécifiques.
+\newline
+On enleve aussi les colonnes de $A$ qui correspondent à des cases révélées, car il ne peut y avoir de bombes dans ces cases.
+\newline
+On obtient alors :
+\[
+    A = \begin{pmatrix}
+        1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+    \end{pmatrix}
+    \hspace{1cm}
+    v = \begin{bmatrix} 2 \\1 \\ \end{bmatrix}
+\]
 
-\subsection{Mouvement de combat}
+On remarque alors que plusieurs colonnes de $A$ sont identiques, on va donc les regrouper.
+Ce regroupement n'est pas intuitif, on est en fait en train de grouper les cases qui sont influencées par les mêmes cases révélées.
+Ce dernier est possible car on sait que chaque case d'un groupe à la même probabilité de contenir une bombe.
+\newline
+Dans notre exemple, on obtient ces groupes :
 
-Comme vu dans le logigramme (\autoref{fig:logigramme}), un mouvement de combat est enregistré si A* ne trouve aucun chemin, qu'un ennemi est considéré comme dangereux et qu'il n'existe pas déjà un mouvement de combat.
-Alors, on va utiliser une suite de conditions (\autoref{sec:move-to-combat}) pour déterminer l'action à réaliser (se déplacer, poser une bombe, attendre).
+\begin{figure}[!htpb]
+    \centering
+    \includegraphics[width=0.2\linewidth]{Figures/groups-on-board.png}
+    \caption[Grille avec les groupes en couleur]{Grille avec les groupes en couleur.}
+    \label{fig:groups-on-board}
+\end{figure}
 
-\subsection{Mouvement de rapprochement}
+On groupe alors ces colonnes :
+\[
+    A = \begin{pmatrix}
+        1 & 1 & 0 \\
+        0 & 1 & 1 \\
+    \end{pmatrix}
+    \hspace{1cm}
+    v = \begin{bmatrix} 2 \\1 \\ \end{bmatrix}
+\]
 
-Si A* ne trouve aucun chemin et qu'aucun ennemi n'est considéré comme dangereux, c'est qu'un ou plusieurs ennemis bloquent le chemin.
-On va alors essayer de se rapprocher du bonus, jusqu'à ce que : 
-\begin{itemize}
-    \item A* trouve un chemin.
-    \item On se rapproche assez d'un ennemi pour qu'il soit considéré comme dangereux.
-\end{itemize}
+Trouver un solution à ce système revient à distribuer des bombes dans les groupes. On connait le nombre de cases dans chaque groupe, on peut alors facilement calculer la probabilité de chaque case de contenir une bombe.
+\newline
+\newline
+On utilise l'algorithme de Gauss-Jordan pour réduire la matrice $A$ en forme échelonnée réduite :
+\[
+    A = \begin{pmatrix}
+        1 & 0 & -1 \\
+        0 & 1 & 1 \\
+    \end{pmatrix}
+    \hspace{1cm}
+    v = \begin{bmatrix} 1 \\1 \\ \end{bmatrix}
+\]
+
+Dans un cas classique, ce système aurait une infinité de solutions, mais dans notre cas, on peut mettre des bornes sur les variables (le nombre de bombes par groupe).
+Initialement, ces bornes sont $[0, |groupe|]$, mais on peut les réduire grâce au système $A|v$.
+\newline
+On cherche alors les variables libres, c'est à dire les colonnes de $A$ qui ne sont pas des pivots. Les solutions sont alors les combinaisons de ces variables qui respectent les bornes.
+\newpage
+Dans notre exemple, on a une seule variable libre, la dernière colonne de $A$. Les solutions sont alors :
+\[
+    \begin{bmatrix} 2 \\0 \\1 \\ \end{bmatrix}
+    \hspace{1cm}
+    \begin{bmatrix} 1 \\1 \\0 \\ \end{bmatrix}
+\]
+
+Retrouver la probabilité de chaque case revient à trouver la probabilité de chaque solution. On obtient alors :
+\[
+    \mathbb{P}(\text{Solutions}_k) = \prod_{i=1}^{|\text{Groupes}|} \binom{|\text{Groupe}_i|}{\text{Solution}_i}
+\]
+\[
+    \mathbb{P}(\text{Groupes}_k) = \sum_{i=1}^{|\text{Solutions}|} \frac{\mathbb{P}(\text{Solutions}_i) \times \text{Solution}_k}{|\text{Groupes}_k|}
+\]
+
+Finalement, toute les cases d'un groupe ont la probabilité de ce groupe de contenir une bombe.

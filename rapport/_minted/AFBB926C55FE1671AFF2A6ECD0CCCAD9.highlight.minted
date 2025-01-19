@@ -1,3 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{combat\PYGZus{}moves}\PYG{p}{(}\PYG{n}{character\PYGZus{}list}\PYG{+w}{ }\PYG{n}{runner}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{character\PYGZus{}list}\PYG{+w}{ }\PYG{n}{closest\PYGZus{}enemy}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{o}{*}\PYG{+w}{ }\PYG{n}{move\PYGZus{}to\PYGZus{}combat}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{levelinfo}\PYG{+w}{ }\PYG{n}{level}\PYG{p}{)}\PYG{p}{;}
-\end{MintedVerbatim}

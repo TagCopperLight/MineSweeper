@@ -19,7 +19,7 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global/global}
-    \entry{tasmin}{article}{}{}
+    \entry{astar}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=030bd0fa2faebea3a5543e5242f1569f}{%
            family={Wikipédia},
@@ -39,14 +39,14 @@
       \field{labeldatesource}{}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{[En ligne; Page disponible le 2-août-2024]}
-      \field{title}{Tas binaire --- Wikipédia{,} l'encyclopédie libre}
+      \field{note}{[En ligne; Page disponible le 13-septembre-2024]}
+      \field{title}{Algorithme A* --- Wikipédia{,} l'encyclopédie libre}
       \field{year}{2024}
       \verb{urlraw}
-      \verb http://fr.wikipedia.org/w/index.php?title=Tas_binaire
+      \verb http://fr.wikipedia.org/w/index.php?title=Algorithme_A*
       \endverb
       \verb{url}
-      \verb http://fr.wikipedia.org/w/index.php?title=Tas_binaire
+      \verb http://fr.wikipedia.org/w/index.php?title=Algorithme_A*
       \endverb
     \endentry
   \enddatalist

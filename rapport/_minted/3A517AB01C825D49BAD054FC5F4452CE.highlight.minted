@@ -1,3 +1,0 @@
-\begin{MintedVerbatim}[commandchars=\\\{\}]
-\PYG{+w}{        }\PYG{n}{action}\PYG{+w}{ }\PYG{n+nf}{lode\PYGZus{}runner}\PYG{p}{(}\PYG{n}{levelinfo}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{character\PYGZus{}list}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{bonus\PYGZus{}list}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{bomb\PYGZus{}list}\PYG{p}{)}\PYG{p}{;}
-\end{MintedVerbatim}

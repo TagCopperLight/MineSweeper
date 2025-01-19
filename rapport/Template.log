@@ -1,12 +1,12 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.20)  18 JAN 2025 15:47
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2025.1.13)  19 JAN 2025 17:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**e:/Bureau/Devloppement/ENSSAT/MineSweeper/rapport/Template.tex
-(e:/Bureau/Devloppement/ENSSAT/MineSweeper/rapport/Template.tex
-LaTeX2e <2024-11-01>
-L3 programming layer <2024-11-02>
+**c:/Users/SyncthingServiceAcct/SyncCours/Algo2/Minesweeper/rapport/Template.tex
+(c:/Users/SyncthingServiceAcct/SyncCours/Algo2/Minesweeper/rapport/Template.tex
+LaTeX2e <2024-11-01> patch level 1
+L3 programming layer <2024-12-25>
 (./Template.cls
 Document Class: Template 2024/11/20 v1.0 Template
 (c:/texlive/2024/texmf-dist/tex/latex/base/report.cls
@@ -406,7 +406,7 @@ Package caption Info: New subtype `subfigure' on input line 238.
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count324
 ) (c:/texlive/2024/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (c:/texlive/2024/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-11-02 L3 programming layer (loader) 
+Package: expl3 2024-12-25 L3 programming layer (loader) 
  (c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2024-05-08 L3 backend support: XeTeX
 \g__graphics_track_int=\count325
@@ -539,7 +539,7 @@ Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 ) (c:/texlive/2024/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 ) (c:/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
+Package: iftex 2024/12/12 v1.0g TeX engine tests
 )
 Package pdfcol Info: Interface disabled because of missing PDF mode of pdfTeX.
 )
@@ -940,7 +940,7 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \bibhang=\skip70
 \blx@bcfin=\read6
 \blx@bcfout=\write5
-\blx@langwohyphens=\language89
+\blx@langwohyphens=\language90
 \c@mincomprange=\count464
 \c@maxcomprange=\count465
 \c@mincompwidth=\count466
@@ -1099,39 +1099,45 @@ Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Document encoding is UTF8 ....
 Package biblatex Info: ... and expl3
-(biblatex)             2024-11-02 L3 programming layer (loader) 
+(biblatex)             2024-12-25 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
  (c:/texlive/2024/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 ))) (./Configurations/03-Header-Footer.tex (c:/texlive/2024/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2024/07/23 v4.3.1 Extensive control of page headers and footers
+Package: fancyhdr 2025/01/07 v5.1.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip85
-\f@nch@O@elh=\skip86
-\f@nch@O@erh=\skip87
-\f@nch@O@olh=\skip88
-\f@nch@O@orh=\skip89
-\f@nch@O@elf=\skip90
-\f@nch@O@erf=\skip91
-\f@nch@O@olf=\skip92
-\f@nch@O@orf=\skip93
+\f@nch@offset@elh=\skip86
+\f@nch@offset@erh=\skip87
+\f@nch@offset@olh=\skip88
+\f@nch@offset@orh=\skip89
+\f@nch@offset@elf=\skip90
+\f@nch@offset@erf=\skip91
+\f@nch@offset@olf=\skip92
+\f@nch@offset@orf=\skip93
+\f@nch@height=\skip94
+\f@nch@footalignment=\skip95
+\f@nch@widthL=\skip96
+\f@nch@widthC=\skip97
+\f@nch@widthR=\skip98
+\@temptokenb=\toks54
 ) (c:/texlive/2024/texmf-dist/tex/latex/footmisc/footmisc.sty
-Package: footmisc 2023/07/05 v6.0f a miscellany of footnote facilities
-\FN@temptoken=\toks54
+Package: footmisc 2024/12/24 v6.0g a miscellany of footnote facilities
+\FN@temptoken=\toks55
 \footnotemargin=\dimen301
 \@outputbox@depth=\dimen302
-Package footmisc Info: Declaring symbol style bringhurst on input line 696.
-Package footmisc Info: Declaring symbol style chicago on input line 704.
-Package footmisc Info: Declaring symbol style wiley on input line 713.
-Package footmisc Info: Declaring symbol style lamport-robust on input line 724.
-Package footmisc Info: Declaring symbol style lamport* on input line 744.
-Package footmisc Info: Declaring symbol style lamport*-robust on input line 765.
+Package footmisc Info: Declaring symbol style bringhurst on input line 699.
+Package footmisc Info: Declaring symbol style chicago on input line 707.
+Package footmisc Info: Declaring symbol style wiley on input line 716.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 727.
+Package footmisc Info: Declaring symbol style lamport* on input line 747.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 768.
 )) (./Configurations/04-ToC.tex) (./Configurations/05-Glossary.tex (c:/texlive/2024/texmf-dist/tex/latex/glossaries/base/glossaries.sty
 Package: glossaries 2024/11/01 v4.55 (NLCT)
  (c:/texlive/2024/texmf-dist/tex/latex/mfirstuc/mfirstuc.sty
 Package: mfirstuc 2022/10/14 v2.08 (NLCT)
-\@glsmfirst=\toks55
-\@glsmrest=\toks56
+\@glsmfirst=\toks56
+\@glsmrest=\toks57
 ) (c:/texlive/2024/texmf-dist/tex/latex/xfor/xfor.sty
 Package: xfor 2009/02/05 v1.05 (NLCT)
 ) (c:/texlive/2024/texmf-dist/tex/latex/datatool/datatool-base.sty
@@ -1177,9 +1183,9 @@ Package: fp-upn 1996/10/21
 ) (c:/texlive/2024/texmf-dist/tex/latex/fp/fp-eval.sty
 Package: fp-eval 1995/04/03
 )))
-\@dtl@toks=\toks57
+\@dtl@toks=\toks58
 \@dtl@tmpcount=\count558
-\dtl@tmplength=\skip94
+\dtl@tmplength=\skip99
 \dtl@sortresult=\count559
 \@dtl@numgrpsepcount=\count560
 \@dtl@datatype=\count561
@@ -1188,25 +1194,25 @@ Package: fp-eval 1995/04/03
 \@dtl@foreach@level=\count564
 )
 \gls@level=\count565
-\@gls@tmpb=\toks58
-\gls@tmplen=\skip95
-\glskeylisttok=\toks59
-\glslabeltok=\toks60
-\glsshorttok=\toks61
-\glslongtok=\toks62
+\@gls@tmpb=\toks59
+\gls@tmplen=\skip100
+\glskeylisttok=\toks60
+\glslabeltok=\toks61
+\glsshorttok=\toks62
+\glslongtok=\toks63
  (c:/texlive/2024/texmf-dist/tex/latex/glossaries/styles/glossary-hypernav.sty
 Package: glossary-hypernav 2024/11/01 v4.55 (NLCT)
 ) (c:/texlive/2024/texmf-dist/tex/latex/glossaries/styles/glossary-list.sty
 Package: glossary-list 2024/11/01 v4.55 (NLCT)
-\glslistdottedwidth=\skip96
+\glslistdottedwidth=\skip101
 ) (c:/texlive/2024/texmf-dist/tex/latex/glossaries/styles/glossary-long.sty
 Package: glossary-long 2024/11/01 v4.55 (NLCT)
  (c:/texlive/2024/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
-\LTleft=\skip97
-\LTright=\skip98
-\LTpre=\skip99
-\LTpost=\skip100
+\LTleft=\skip102
+\LTright=\skip103
+\LTpre=\skip104
+\LTpost=\skip105
 \LTchunksize=\count566
 \LTcapwidth=\dimen303
 \LT@head=\box88
@@ -1218,19 +1224,19 @@ Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
 \LT@rows=\count568
 \c@LT@tables=\count569
 \c@LT@chunks=\count570
-\LT@p@ftn=\toks63
+\LT@p@ftn=\toks64
 )
-\glsdescwidth=\skip101
-\glspagelistwidth=\skip102
+\glsdescwidth=\skip106
+\glspagelistwidth=\skip107
 ) (c:/texlive/2024/texmf-dist/tex/latex/glossaries/styles/glossary-super.sty
 Package: glossary-super 2024/11/01 v4.55 (NLCT)
  (c:/texlive/2024/texmf-dist/tex/latex/supertabular/supertabular.sty
 Package: supertabular 2024/07/20 v4.2c the supertabular environment
 \c@tracingst=\count571
 \ST@wd=\dimen304
-\ST@rightskip=\skip103
-\ST@leftskip=\skip104
-\ST@parfillskip=\skip105
+\ST@rightskip=\skip108
+\ST@leftskip=\skip109
+\ST@parfillskip=\skip110
 \ST@pageleft=\dimen305
 \ST@headht=\dimen306
 \ST@tailht=\dimen307
@@ -1243,15 +1249,15 @@ Package: supertabular 2024/07/20 v4.2c the supertabular environment
 \ST@pbox=\box93
 )) (c:/texlive/2024/texmf-dist/tex/latex/glossaries/styles/glossary-tree.sty
 Package: glossary-tree 2024/11/01 v4.55 (NLCT)
-\glstreeindent=\skip106
+\glstreeindent=\skip111
 ))) (./Configurations/06-Chapters.tex (c:/texlive/2024/texmf-dist/tex/latex/titlesec/titlesec.sty
-Package: titlesec 2023/10/27 v2.16 Sectioning titles
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
 \ttl@box=\box94
-\beforetitleunit=\skip107
-\aftertitleunit=\skip108
+\beforetitleunit=\skip112
+\aftertitleunit=\skip113
 \ttl@plus=\dimen314
 \ttl@minus=\dimen315
-\ttl@toksa=\toks64
+\ttl@toksa=\toks65
 \titlewidth=\dimen316
 \titlewidthlast=\dimen317
 \titlewidthfirst=\dimen318
@@ -1262,9 +1268,9 @@ Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 \col@sep=\dimen319
 \ar@mcellbox=\box95
 \extrarowheight=\dimen320
-\NC@list=\toks65
-\extratabsurround=\skip109
-\backup@length=\skip110
+\NC@list=\toks66
+\extratabsurround=\skip114
+\backup@length=\skip115
 \ar@cellbox=\box96
 )
 \TX@col@width=\dimen321
@@ -1273,7 +1279,7 @@ Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 \TX@target=\dimen324
 \TX@delta=\dimen325
 \TX@cols=\count572
-\TX@ftn=\toks66
+\TX@ftn=\toks67
 ) (c:/texlive/2024/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen326
@@ -1295,15 +1301,15 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisrulewidth=\dimen338
 ) (c:/texlive/2024/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip111
+\multirow@colwidth=\skip116
 \multirow@cntb=\count577
-\multirow@dima=\skip112
+\multirow@dima=\skip117
 \bigstrutjot=\dimen339
 ) (c:/texlive/2024/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
-\labelindent=\skip113
+\labelindent=\skip118
 \enit@outerparindent=\dimen340
-\enit@toks=\toks67
+\enit@toks=\toks68
 \enit@inbox=\box97
 \enit@count@id=\count578
 \enitdp@description=\count579
@@ -1317,8 +1323,8 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 Package: latex2pydata 2024/11/17 v0.4.0 latex2pydata - write data to file in Python literal format
 ) (c:/texlive/2024/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
-\pgfopts@list@add@a@toks=\toks68
-\pgfopts@list@add@b@toks=\toks69
+\pgfopts@list@add@a@toks=\toks69
+\pgfopts@list@add@b@toks=\toks70
 ) (c:/texlive/2024/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
 Package shellesc Info: Restricted shell escape enabled on input line 77.
@@ -1416,13 +1422,13 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip114
+\Hy@SectionHShift=\skip119
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 18.
 ) (./Configurations/11-Variables.tex)) (./Variables/Variables.tex) (./Matter/04-Glossary.tex) (./Matter/05-Acronyms.tex)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
- (./Template.aux (./Matter/00-Cover.aux) (./Chapters/01-Introduction.aux) (./Chapters/02-Preliminaires.aux) (./Chapters/03-Strategie.aux) (./Chapters/04-Parametres.aux) (./Chapters/05-Modules.aux) (./Chapters/06-Presentation-Modules.aux) (./Chapters/07-Evaluation-Experimentale.aux) (./Chapters/08-Conclusion.aux))
+ (./Template.aux (./Matter/00-Cover.aux) (./Chapters/01-Introduction.aux) (./Chapters/02-Preliminaires.aux) (./Chapters/05-Modules.aux) (./Chapters/06-Presentation-Modules.aux) (./Chapters/03-Strategie.aux) (./Chapters/08-Conclusion.aux))
 \openout1 = `Template.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 11.
@@ -1677,11 +1683,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--23
  []
 
 
-Overfull \hbox (11.1709pt too wide) in paragraph at lines 3--23
-\TU/TeXGyrePagella(0)/m/n/10.95 des ennemis empêche d’explorer un “arbre des positions”. Par ailleurs, l’implémentation
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 3--23
 
  []
@@ -1689,6 +1690,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--23
 
 Underfull \hbox (badness 10000) in paragraph at lines 3--23
 
+ []
+
+
+Overfull \hbox (4.99754pt too wide) in paragraph at lines 3--23
+\TU/TeXGyrePagella(0)/m/n/10.95 artificielle capable d’aider le joueur en identifiant les cases sûres à révéler, en s’appuyant
  []
 
 
@@ -1702,19 +1708,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--23
  (./Chapters/02-Preliminaires.tex
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--15
+Underfull \hbox (badness 10000) in paragraph at lines 18--22
 
  []
 
-File: Figures/array.png Graphic file (type bmp)
-<Figures/array.png>
+\pydata@fh@_278C491BDD8A53618C149C4AC790DA34.data.minted=\write8
+\openout8 = `_278C491BDD8A53618C149C4AC790DA34.data.minted'.
 
-Overfull \hbox (19.19992pt too wide) in paragraph at lines 23--29
-[]\TU/TeXGyrePagella(0)/m/n/10.95 Pour gérer les Tas-min, nous avons besoin de deux procédures : \TU/lmtt/m/n/10.95 insert \TU/TeXGyrePagella(0)/m/n/10.95 et \TU/lmtt/m/n/10.95 extract_min\TU/TeXGyrePagella(0)/m/n/10.95 .
- []
+runsystem(latexminted config  --timestamp 20250119173229 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
 
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 30.
+(./_278C491BDD8A53618C149C4AC790DA34.config.minted)
+runsystem(latexminted cleanconfig  --timestamp 20250119173229 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
+
+ (./_minted/default.style.minted) (./_minted/3CB7BDA9A2A3DC745806313653597A8F.highlight.minted
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2.
 
 
 [4
@@ -1722,278 +1730,159 @@ LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
 
 
 
-]
-\pydata@fh@_278C491BDD8A53618C149C4AC790DA34.data.minted=\write8
-\openout8 = `_278C491BDD8A53618C149C4AC790DA34.data.minted'.
-
-runsystem(latexminted config  --timestamp 20250118154752 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
-
- (./_278C491BDD8A53618C149C4AC790DA34.config.minted)
-runsystem(latexminted cleanconfig  --timestamp 20250118154752 278C491BDD8A53618C149C4AC790DA34)...executed safely (allowed).
-
- (./_minted/default.style.minted) (./_minted/748B3E24F21B920ECF96333D8CC91B86.highlight.minted)
-Package hyperref Info: bookmark level for unknown listing defaults to 0 on input line 49.
- (./_minted/40DBFA9C1FD5AEF6D8A2FD4DC6425957.highlight.minted) (./_minted/640EAFFB4CB60945BA359429B6A47B5C.highlight.minted
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2.
+])
+Package hyperref Info: bookmark level for unknown listing defaults to 0 on input line 36.
 )
 
-[5] (./_minted/2F4690EFE0941D59C3F5C5AEADA98A9E.highlight.minted)
-
-[6] (./_minted/984BA0565928922683F85AD3DF577AE3.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 190--194
-
- []
-
-
-Underfull \vbox (badness 3713) has occurred while \output is active []
-
-
-
-[7] (./_minted/0346147DF81EEA808A775064A18206A8.highlight.minted))
-
-[8]
-\openout2 = `Chapters/03-Strategie.aux'.
-
- (./Chapters/03-Strategie.tex
-Chapter 3.
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--26
-
- []
-
-
-
-[9
-
-
-
-
-]
-File: Figures/diagramme2.png Graphic file (type bmp)
-<Figures/diagramme2.png>
-
-
-[10])
-
-[11]
-\openout2 = `Chapters/04-Parametres.aux'.
-
- (./Chapters/04-Parametres.tex
-Chapter 4.
-(./_minted/3A517AB01C825D49BAD054FC5F4452CE.highlight.minted)
-
-[12
-
-
-
-
-]
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 54.
- (./_minted/547651944F924120805BC93F771A197B.highlight.minted)
-File: Figures/map1.png Graphic file (type bmp)
-<Figures/map1.png>
-
-
-[13]
-Overfull \hbox (6.62085pt too wide) in paragraph at lines 84--89
-\TU/TeXGyrePagella(0)/m/n/10.95 sique. De plus, les coordonnées sont relatives à la carte, c’est-à-dire que le coin supérieur
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 84--89
-
- []
-
-
-Overfull \hbox (18.10469pt too wide) in paragraph at lines 84--89
-\TU/TeXGyrePagella(0)/m/n/10.95 Afin de faciliter le développement, et de laisser une liberté de choix dans l’implémentation,
- []
-
-)
-
-[14]
+[5]
 \openout2 = `Chapters/05-Modules.aux'.
 
  (./Chapters/05-Modules.tex
-Chapter 5.
+Chapter 3.
+)
+
+[6
 
 
-[15
+
+
+]
+\openout2 = `Chapters/06-Presentation-Modules.aux'.
+
+ (./Chapters/06-Presentation-Modules.tex
+Chapter 4.
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 4.
+(./_minted/E8D423561623EDBC6A0F7DE8C9AC3616.highlight.minted)
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
+
+ []
+
+
+Overfull \hbox (0.88986pt too wide) in paragraph at lines 34--36
+\TU/TeXGyrePagella(0)/m/n/10.95 Nous avons choisi d’implémenter cette fonction pour créer dynamiquement un plateau
+ []
+
+(./_minted/F35B87E6A443DDBADCB273D5D068D31B.highlight.minted
+
+[7
 
 
 
 
 ])
 
-[16]
-\openout2 = `Chapters/06-Presentation-Modules.aux'.
-
- (./Chapters/06-Presentation-Modules.tex
-Chapter 6.
-(./_minted/93348B2D94FE811BECF0629AC8D433E4.highlight.minted)
-Underfull \hbox (badness 10000) in paragraph at lines 16--20
-
- []
-
-(./_minted/09CCDB8326FD4D7325553E1FBE34FAD2.highlight.minted
-
-[17
-
-
-
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[18])
-
-[19] (./_minted/88C31DCA10835E325F4A0EF179EBBF9F.highlight.minted)
-
-[20] (./_minted/1E9832095FA6186D92100C1DD0C6AC10.highlight.minted)
-
-[21] (./_minted/AFBB926C55FE1671AFF2A6ECD0CCCAD9.highlight.minted
+[8] (./_minted/9756EE3B92132FF728254248B46B7688.highlight.minted
 LaTeX Font Info:    Font shape `TU/TeXGyrePagella(0)/bx/n' in size <9> not available
 (Font)              Font shape `TU/TeXGyrePagella(0)/b/n' tried instead on input line 2.
-)
-Underfull \hbox (badness 1062) in paragraph at lines 217--217
-[]|\TU/TeXGyrePagella(0)/m/n/10 Structure contenant les informa-
+) (./_minted/17CF2CC39B7C3A0ABFF860DCD687361E.highlight.minted)
+
+[9] (./_minted/3563598867E374CD230BF85795FBB962.highlight.minted) (./_minted/DCC3C714ED497F14117382E102B783B0.highlight.minted
+
+[10]) (./_minted/EF6E4F80914F8AEA0B0F18DD32413CEE.highlight.minted) (./_minted/2ECC2C8A715513F773390D7709102792.highlight.minted
+
+[11]) (./_minted/4D8BCDDF0073752D09585BC1E73E167B.highlight.minted) (./_minted/CDBB7DE27B1647461615BB2641F83B7B.highlight.minted
+
+[12])
+
+[13] (./_minted/B4FBB337BF3256D63403E1C67A61C1C6.highlight.minted) (./_minted/2C0D620CC2E49F6C1901D88315017798.highlight.minted)
+
+[14] (./_minted/7C5D7755E6F77A9CE6C25B8CACECE53B.highlight.minted) (./_minted/F3715829BC2992BEC704DC5B80C2783C.highlight.minted))
+
+[15]
+\openout2 = `Chapters/03-Strategie.aux'.
+
+ (./Chapters/03-Strategie.tex
+Chapter 5.
+
+
+[16
+
+
+
+
+] (./_minted/57C006701D9F767BCDA23EDFD290A4CD.highlight.minted
+
+[17])
+Underfull \hbox (badness 10000) in paragraph at lines 106--119
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 224--230
+Underfull \hbox (badness 10000) in paragraph at lines 106--119
 
- []
-
-
-
-[22] (./_minted/E59050140567C7224F14FC660BDBA0BF.highlight.minted
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[23]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[24])
-
-[25] (./_minted/549DC6E411F7AFA2D2A9DFD0C4CC617A.highlight.minted)
-
-[26] (./_minted/257358DF1EDA299BEB661931DA7D179B.highlight.minted
-Underfull \vbox (badness 6978) has occurred while \output is active []
-
-
-
-[27]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[28]))
-
-[29]
-\openout2 = `Chapters/07-Evaluation-Experimentale.aux'.
-
- (./Chapters/07-Evaluation-Experimentale.tex
-Chapter 7.
-
-
-[30
-
-
-
-
-]
-
-[31]
-Overfull \hbox (2.83435pt too wide) in paragraph at lines 93--94
-\TU/TeXGyrePagella(0)/m/n/10.95 Malgré un pourcentage de victoires élevé, il y a des défaites pour le niveau 3. Analysons
- []
-
-File: Figures/level3-over.png Graphic file (type bmp)
-<Figures/level3-over.png>
-
-Overfull \hbox (10.16486pt too wide) in paragraph at lines 102--107
-[]\TU/TeXGyrePagella(0)/m/n/10.95 À cette position, le runner joue \TU/lmtt/m/n/10.95 DOWN\TU/TeXGyrePagella(0)/m/n/10.95 , ce qui le coince entre deux ennemis, l’empêchant
  []
 
 
 
-[32]
-File: Figures/level4-over.png Graphic file (type bmp)
-<Figures/level4-over.png>
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 128--133
 
-Overfull \hbox (1.50854pt too wide) in paragraph at lines 137--142
-\TU/TeXGyrePagella(0)/m/n/10.95 Cette erreur provient du mode de mouvement en combat : lorsqu’un combat se déroule
+ []
+
+File: Figures/exemple-board.png Graphic file (type bmp)
+<Figures/exemple-board.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--168
+
+ []
+
+
+Underfull \vbox (badness 1107) has occurred while \output is active []
+
+
+
+[19]
+File: Figures/groups-on-board.png Graphic file (type bmp)
+<Figures/groups-on-board.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--204
+
  []
 
 
 
-[33]
-File: Figures/level4.png Graphic file (type bmp)
-<Figures/level4.png>
-File: Figures/level5-over.png Graphic file (type bmp)
-<Figures/level5-over.png>
+[20])
 
-
-[34])
-
-[35]
+[21]
 \openout2 = `Chapters/08-Conclusion.aux'.
 
  (./Chapters/08-Conclusion.tex
-Chapter 8.
+Chapter 6.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 4--30
 
- []
-
-
-
-[36
+[22
 
 
 
 
 ]
-Overfull \hbox (12.44945pt too wide) in paragraph at lines 32--32
-[][]\TU/TeXGyrePagella(0)/m/n/10 Wikipédia (2024b). “  Tas binaire — Wikipédia, l’encyclopédie libre”. In: [En ligne; Page disponible
- []
 
+LaTeX Warning: Empty bibliography on input line 32.
 
-
-[37
-
-
-
-] (./Template.aux (./Matter/00-Cover.aux) (./Chapters/01-Introduction.aux) (./Chapters/02-Preliminaires.aux) (./Chapters/03-Strategie.aux) (./Chapters/04-Parametres.aux) (./Chapters/05-Modules.aux) (./Chapters/06-Presentation-Modules.aux) (./Chapters/07-Evaluation-Experimentale.aux) (./Chapters/08-Conclusion.aux))
+(./Template.aux (./Matter/00-Cover.aux) (./Chapters/01-Introduction.aux) (./Chapters/02-Preliminaires.aux) (./Chapters/05-Modules.aux) (./Chapters/06-Presentation-Modules.aux) (./Chapters/03-Strategie.aux) (./Chapters/08-Conclusion.aux))
  ***********
-LaTeX2e <2024-11-01>
-L3 programming layer <2024-11-02>
+LaTeX2e <2024-11-01> patch level 1
+L3 programming layer <2024-12-25>
  ***********
 Package rerunfilecheck Info: File `Template.out' has not changed.
-(rerunfilecheck)             Checksum: 9E083F44F7087B88A6EA71ADBD0979A9;8831.
+(rerunfilecheck)             Checksum: A3F9E487630149FB073AE8A52AA953F7;7085.
 Package logreq Info: Writing requests to 'Template.run.xml'.
 \openout1 = `Template.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 54705 strings out of 473995
- 1157855 string characters out of 5737702
- 2244060 words of memory out of 5000000
- 76573 multiletter control sequences out of 15000+600000
- 612721 words of font info for 187 fonts, out of 8000000 for 9000
+ 54400 strings out of 473846
+ 1150320 string characters out of 5733563
+ 2233455 words of memory out of 5000000
+ 76426 multiletter control sequences out of 15000+600000
+ 613473 words of font info for 185 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 123i,12n,145p,2481b,5132s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 123i,13n,145p,2497b,1153s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Template.xdv (38 pages, 568556 bytes).
+Output written on Template.xdv (23 pages, 344576 bytes).
