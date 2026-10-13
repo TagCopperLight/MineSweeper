@@ -28,31 +28,25 @@ The board is 16 × 30 with 99 mines (expert). Your first reveal is always safe.
 
 ## Comment fonctionne l'IA
 
-Même en jouant parfaitement, le démineur reste un jeu de hasard : il arrive qu'aucune
-case ne soit sûre. L'IA ne cherche donc pas seulement les coups certains, elle calcule
-pour chaque case cachée la probabilité qu'elle contienne une mine.
+Au démineur, il arrive qu'aucune case ne soit sûre à 100 %. L'IA calcule donc, pour
+chaque case cachée, la probabilité qu'elle cache une mine, et l'affiche en couleur.
 
-La première idée, tester toutes les répartitions de mines possibles autour des chiffres
-révélés (c'est le prototype `proba.py`), devient vite inutilisable : le nombre de
-combinaisons explose avec la taille de la zone découverte. On reformule donc le problème
-en algèbre linéaire. Avec `A` la matrice d'adjacence de la grille et `B` le vecteur qui
-vaut 1 là où se trouve une mine, chaque chiffre révélé impose `A · B = v` sur sa ligne.
-On ne garde que les lignes des cases révélées et les colonnes des cases cachées qui
-touchent au moins un chiffre.
+Chaque chiffre révélé donne une règle simple : « parmi mes voisines cachées, il y a
+exactement N mines ». L'IA cherche toutes les façons de placer les mines qui
+respectent toutes ces règles en même temps. Une case qui a une mine dans 3 cas sur 4
+a donc 75 % de chances d'en cacher une.
 
-L'astuce principale est de regrouper les cases cachées qui ont exactement la même
-colonne dans `A`, c'est-à-dire qui voisinent les mêmes chiffres : elles ont forcément
-la même probabilité, et on ne raisonne plus que sur le nombre de mines par groupe. Le
-système, beaucoup plus petit, est réduit par l'élimination de Gauss-Jordan. Les variables
-libres sont bornées entre 0 et la taille de leur groupe, ce qui permet d'énumérer toutes
-les solutions valides. Chaque solution est pondérée par le nombre de façons de placer
-ses mines dans les groupes (un produit de coefficients binomiaux), et la probabilité
-d'une case est la proportion moyenne de mines dans son groupe, sur l'ensemble des
-solutions.
+Tester toutes les combinaisons une par une est beaucoup trop lent (c'est ce que fait le
+prototype `proba.py`). Le programme en C utilise deux astuces pour aller plus vite :
 
-Les cases sans aucun chiffre voisin ne sont pas estimées, et le nombre total de mines
-restantes n'est pas encore pris en compte. Le [rapport](rapport.pdf) détaille le
-raisonnement sur un exemple complet.
+1. **Regrouper les cases.** Deux cases cachées qui touchent exactement les mêmes chiffres
+   ont forcément la même probabilité. On ne se demande plus « où sont les mines ? » mais
+   « combien de mines dans chaque groupe ? », ce qui fait beaucoup moins de cas.
+2. **Résoudre les règles comme un système d'équations.** Les règles sont écrites sous
+   forme de matrice et simplifiées avec la méthode de Gauss-Jordan. Il ne reste alors
+   que quelques inconnues à essayer.
+
+Le [rapport](rapport.pdf) explique la méthode en détail, sur un exemple.
 
 ## Layout
 
