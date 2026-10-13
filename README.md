@@ -51,7 +51,7 @@ d'une case est la proportion moyenne de mines dans son groupe, sur l'ensemble de
 solutions.
 
 Les cases sans aucun chiffre voisin ne sont pas estimées, et le nombre total de mines
-restantes n'est pas encore pris en compte. Le [rapport](rapport/) détaille le
+restantes n'est pas encore pris en compte. Le [rapport](rapport.pdf) détaille le
 raisonnement sur un exemple complet.
 
 ## Layout
@@ -59,4 +59,5 @@ raisonnement sur un exemple complet.
 - `minesweeper.c`: board, mine placement, display, and game loop.
 - `probabilities.c`: the matrix-based probability solver.
 - `proba.py`: a brute-force Python prototype of the solver.
-- `rapport/`: LaTeX project report.
+- `rapport.pdf`: the project report (in French).
+- `rapport/`: LaTeX sources of the report.
