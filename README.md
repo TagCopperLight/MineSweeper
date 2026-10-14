@@ -1,4 +1,4 @@
-# MineSweeper
+# Minesweeper
 
 A terminal Minesweeper in C with an AI assistant that computes the probability
 of each hidden cell being a mine.
